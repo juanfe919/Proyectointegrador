@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Estación 2 · Introducción a la Administración · Carvajal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <!-- Lottie CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+  <style>
+    /* ══════════════════════════════════════════
+       TOKENS
+    ══════════════════════════════════════════ */
+    :root {
+      --azul:        #00488e;
+      --azul-dark:   #003368;
+      --azul-light:  #cfe3f5;
+      --naranja:     #FF6B00;
+      --naranja-lt:  #fff1e6;
+      --gris-bg:     #f4f7f9;
+      --gris-card:   #ffffff;
+      --gris-line:   #e2eaf2;
+      --gris-text:   #6b7f96;
+      --text-dark:   #0d1f35;
+      --text-body:   #2d4157;
+      --shadow-sm:   0 2px 12px rgba(0,72,142,.08);
+      --shadow-md:   0 8px 32px rgba(0,72,142,.14);
+      --shadow-lg:   0 20px 60px rgba(0,72,142,.20);
+      --radius-sm:   10px;
+      --radius-md:   18px;
+      --radius-lg:   28px;
+      --font:        'Montserrat', sans-serif;
+      --t:           0.35s cubic-bezier(.4,0,.2,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--gris-bg);
+      color: var(--text-body);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ══════════════════════════════════════════
+       HEADER HERO
+    ══════════════════════════════════════════ */
+    .hero {
+      background: linear-gradient(135deg, var(--azul-dark) 0%, var(--azul) 55%, #005bb5 100%);
+      padding: 0 24px;
+      position: relative;
+      overflow: hidden;
+      min-height: 340px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(255,107,0,.22) 0%, transparent 45%),
+        radial-gradient(circle at 10% 80%, rgba(0,91,181,.3) 0%, transparent 45%),
+        repeating-linear-gradient(45deg, transparent, transparent 40px,
+          rgba(255,255,255,.018) 40px, rgba(255,255,255,.018) 41px);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; bottom: -1px; left: 0; right: 0;
+      height: 50px; background: var(--gris-bg);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+
+    /* Logo flotante en el hero */
+    .hero-logo-float {
+      position: absolute;
+      top: 28px; right: 32px;
+      display: flex; align-items: center; gap: 10px;
+      opacity: .18;
+      pointer-events: none;
+    }
+    .hero-logo-float svg { width: 80px; height: 80px; }
+
+    .hero-inner {
+      max-width: 900px; margin: 0 auto; width: 100%;
+      padding: 28px 0 64px;
+      position: relative; z-index: 1;
+    }
+    .hero-nav {
+      display: flex; align-items: center;
+      justify-content: space-between; margin-bottom: 36px;
+    }
+    .hero-logo {
+      display: flex; align-items: center; gap: 10px; text-decoration: none;
+    }
+    .hero-logo-mark {
+      width: 40px; height: 40px;
+      background: rgba(255,255,255,.15); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(255,255,255,.25);
+    }
+    .hero-logo-mark svg { width: 24px; height: 24px; }
+    .hero-logo span { font-size: 16px; font-weight: 900; letter-spacing: 3px; color: white; }
+
+    .btn-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: rgba(255,255,255,.8); font-size: 12px; font-weight: 600;
+      letter-spacing: 1px; text-transform: uppercase; text-decoration: none;
+      background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2);
+      border-radius: 8px; padding: 8px 14px;
+      transition: background var(--t);
+    }
+    .btn-back:hover { background: rgba(255,255,255,.22); color: white; }
+    .btn-back svg { width: 14px; height: 14px; fill: currentColor; }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,107,0,.2); border: 1px solid rgba(255,107,0,.4);
+      border-radius: 20px; padding: 5px 14px;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: #ffb347; margin-bottom: 14px;
+    }
+    .hero-badge::before {
+      content: ''; width: 7px; height: 7px;
+      border-radius: 50%; background: var(--naranja);
+      animation: blink 1.2s ease-in-out infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .hero-title {
+      font-size: clamp(28px, 5vw, 46px);
+      font-weight: 900; color: white; line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    .hero-title em { font-style: normal; color: var(--naranja); }
+    .hero-sub {
+      font-size: 15px; color: rgba(255,255,255,.72);
+      max-width: 520px; line-height: 1.65;
+    }
+
+    /* ══════════════════════════════════════════
+       LEMA CARVAJAL — BANDA ANIMADA
+    ══════════════════════════════════════════ */
+    .lema-band {
+      background: linear-gradient(90deg, var(--azul-dark), var(--azul), #005bb5);
+      padding: 0;
+      overflow: hidden;
+      position: relative;
+      height: 48px;
+      display: flex;
+      align-items: center;
+    }
+    .lema-track {
+      display: flex;
+      gap: 0;
+      white-space: nowrap;
+      animation: scrollLema 22s linear infinite;
+      will-change: transform;
+    }
+    .lema-item {
+      display: inline-flex; align-items: center; gap: 14px;
+      padding: 0 32px;
+      font-size: 13px; font-weight: 800;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: white;
+    }
+    .lema-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--naranja); flex-shrink: 0;
+    }
+    @keyframes scrollLema {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ══════════════════════════════════════════
+       MAIN
+    ══════════════════════════════════════════ */
+    .page-main {
+      max-width: 900px; margin: 0 auto;
+      padding: 48px 24px 100px;
+      display: flex; flex-direction: column; gap: 48px;
+    }
+
+    /* ── Etiqueta de sección ── */
+    .section-label {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--gris-text); margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--gris-line); }
+
+    /* ══════════════════════════════════════════
+       BLOQUE: LOGO + LEMA
+    ══════════════════════════════════════════ */
+    .brand-block {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 44px 36px;
+      display: flex; align-items: center; gap: 40px;
+      box-shadow: var(--shadow-md);
+      position: relative; overflow: hidden;
+    }
+    .brand-block::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+      background: linear-gradient(90deg, var(--azul), var(--naranja));
+    }
+    .brand-logo-wrap {
+      flex-shrink: 0;
+      width: 120px; height: 120px;
+      background: var(--azul);
+      border-radius: 20px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 10px 32px rgba(0,72,142,.35);
+      position: relative;
+    }
+    .brand-logo-wrap::after {
+      content: '';
+      position: absolute; inset: -3px;
+      border-radius: 23px;
+      border: 2px dashed rgba(0,72,142,.2);
+      animation: spinSlow 15s linear infinite;
+    }
+    @keyframes spinSlow { to { transform: rotate(360deg); } }
+    .brand-logo-wrap svg { width: 80px; height: 80px; }
+
+    .brand-text { flex: 1; }
+    .brand-name {
+      font-size: 36px; font-weight: 900;
+      color: var(--azul); letter-spacing: 4px;
+      margin-bottom: 6px;
+    }
+    .brand-tagline {
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--gris-text); margin-bottom: 18px;
+    }
+    .brand-lema {
+      display: inline-block;
+      font-size: 20px; font-weight: 900;
+      color: var(--text-dark);
+      line-height: 1.3;
+      border-left: 5px solid var(--naranja);
+      padding-left: 16px;
+    }
+    .brand-lema span { color: var(--naranja); }
+
+    /* ══════════════════════════════════════════
+       GRID DE PILARES (Misión, Visión, etc.)
+    ══════════════════════════════════════════ */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .pillar-card {
+      background: white; border-radius: var(--radius-md);
+      padding: 28px 24px;
+      box-shadow: var(--shadow-sm);
+      border: 1.5px solid var(--gris-line);
+      transition: transform var(--t), box-shadow var(--t), border-color var(--t);
+      cursor: pointer;
+      position: relative; overflow: hidden;
+    }
+    .pillar-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--azul-light);
+    }
+    .pillar-card.expanded { border-color: var(--azul); }
+    .pillar-card.expanded::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--azul), var(--naranja));
+    }
+    .pillar-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; margin-bottom: 14px;
+      background: var(--azul-light);
+      transition: background var(--t);
+    }
+    .pillar-card.expanded .pillar-icon { background: var(--azul); }
+    .pillar-label {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gris-text); margin-bottom: 6px;
+    }
+    .pillar-card.expanded .pillar-label { color: var(--naranja); }
+    .pillar-title {
+      font-size: 17px; font-weight: 800;
+      color: var(--text-dark); margin-bottom: 10px;
+    }
+    .pillar-preview {
+      font-size: 13px; color: var(--gris-text);
+      line-height: 1.5; font-weight: 500;
+    }
+    .pillar-body {
+      font-size: 13px; color: var(--text-body);
+      line-height: 1.7; font-weight: 400;
+      margin-top: 12px; display: none;
+      border-top: 1px solid var(--gris-line);
+      padding-top: 12px;
+    }
+    .pillar-card.expanded .pillar-body { display: block; }
+    .pillar-toggle {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase;
+      color: var(--azul); margin-top: 12px;
+    }
+    .pillar-toggle svg {
+      width: 13px; height: 13px; fill: var(--azul);
+      transition: transform var(--t);
+    }
+    .pillar-card.expanded .pillar-toggle svg { transform: rotate(180deg); }
+
+    /* ══════════════════════════════════════════
+       ORGANIGRAMA VISUAL
+    ══════════════════════════════════════════ */
+    .org-wrap {
+      background: white; border-radius: var(--radius-lg);
+      padding: 36px 28px; box-shadow: var(--shadow-md);
+      overflow-x: auto;
+    }
+    .org-tree {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 0;
+      min-width: 560px;
+    }
+    .org-level { display: flex; justify-content: center; gap: 16px; position: relative; }
+    .org-node {
+      display: flex; flex-direction: column; align-items: center;
+      position: relative;
+    }
+    .org-box {
+      padding: 10px 18px; border-radius: 10px;
+      font-size: 12px; font-weight: 700;
+      text-align: center; white-space: nowrap;
+      border: 2px solid;
+    }
+    .org-box.top {
+      background: var(--azul); color: white;
+      border-color: var(--azul);
+      font-size: 13px; padding: 12px 24px;
+    }
+    .org-box.mid {
+      background: var(--azul-light); color: var(--azul);
+      border-color: var(--azul);
+    }
+    .org-box.low {
+      background: var(--naranja-lt); color: var(--naranja);
+      border-color: var(--naranja);
+      font-size: 11px;
+    }
+    .org-line-v {
+      width: 2px; height: 28px;
+      background: var(--gris-line); margin: 0 auto;
+    }
+    .org-line-h {
+      height: 2px; background: var(--gris-line);
+      position: absolute; top: 0;
+    }
+    .org-spacer { height: 28px; position: relative; display: flex; align-items: flex-start; justify-content: center; }
+    .org-spacer .org-line-v { height: 100%; }
+
+    /* ══════════════════════════════════════════
+       VALORES — CHIPS ANIMADOS
+    ══════════════════════════════════════════ */
+    .valores-grid {
+      display: flex; flex-wrap: wrap; gap: 12px;
+    }
+    .valor-chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 20px; border-radius: 50px;
+      font-size: 13px; font-weight: 700;
+      background: white; border: 2px solid var(--gris-line);
+      color: var(--text-dark);
+      box-shadow: var(--shadow-sm);
+      cursor: default;
+      transition: all var(--t);
+      opacity: 0; transform: translateY(14px);
+      animation: chipIn 0.4s ease forwards;
+    }
+    .valor-chip:hover {
+      border-color: var(--azul);
+      background: var(--azul-light);
+      color: var(--azul);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .valor-chip .chip-icon { font-size: 18px; }
+    @keyframes chipIn { to { opacity: 1; transform: translateY(0); } }
+
+    /* ══════════════════════════════════════════
+       MARKETING — CARDS HORIZONTALES
+    ══════════════════════════════════════════ */
+    .marketing-list {
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .mkt-card {
+      background: white; border-radius: var(--radius-md);
+      padding: 20px 24px;
+      display: flex; gap: 18px; align-items: flex-start;
+      box-shadow: var(--shadow-sm);
+      border: 1.5px solid var(--gris-line);
+      transition: border-color var(--t), box-shadow var(--t);
+    }
+    .mkt-card:hover { border-color: var(--azul-light); box-shadow: var(--shadow-md); }
+    .mkt-icon {
+      width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0;
+      background: var(--azul-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+    }
+    .mkt-title { font-size: 14px; font-weight: 800; color: var(--text-dark); margin-bottom: 5px; }
+    .mkt-desc { font-size: 13px; color: var(--gris-text); line-height: 1.55; }
+
+    /* ══════════════════════════════════════════
+       BIENESTAR — SEGUNDO HOGAR
+    ══════════════════════════════════════════ */
+    .bienestar-intro {
+      background: linear-gradient(135deg, var(--azul-dark), var(--azul));
+      border-radius: var(--radius-lg);
+      padding: 32px 36px;
+      display: flex; align-items: center; gap: 24px;
+      margin-bottom: 24px;
+      position: relative; overflow: hidden;
+    }
+    .bienestar-intro::before {
+      content: '🏠'; position: absolute; right: 28px; top: 50%;
+      transform: translateY(-50%);
+      font-size: 100px; opacity: .08; pointer-events: none;
+    }
+    .bienestar-intro-icon { font-size: 52px; flex-shrink: 0; }
+    .bienestar-intro-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 6px;
+    }
+    .bienestar-intro-title {
+      font-size: 20px; font-weight: 900; color: white;
+      line-height: 1.25; margin-bottom: 8px;
+    }
+    .bienestar-intro-title span { color: #ffb347; }
+    .bienestar-intro-sub {
+      font-size: 13px; color: rgba(255,255,255,.75);
+      line-height: 1.6; max-width: 460px;
+    }
+    .bienestar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 16px;
+    }
+    .bienestar-card {
+      background: white; border-radius: var(--radius-md);
+      padding: 28px 20px; box-shadow: var(--shadow-sm);
+      border: 1.5px solid var(--gris-line);
+      text-align: center;
+      transition: transform var(--t), box-shadow var(--t), border-color var(--t);
+      opacity: 0; transform: translateY(16px);
+      animation: bCardIn 0.5s ease forwards;
+    }
+    .bienestar-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--azul-light);
+    }
+    @keyframes bCardIn { to { opacity: 1; transform: translateY(0); } }
+    .bienestar-big-emoji {
+      font-size: 48px; display: block; margin-bottom: 14px; line-height: 1;
+      animation: floatEmoji 3s ease-in-out infinite;
+    }
+    .bienestar-card:nth-child(2) .bienestar-big-emoji { animation-delay: .3s; }
+    .bienestar-card:nth-child(3) .bienestar-big-emoji { animation-delay: .6s; }
+    .bienestar-card:nth-child(4) .bienestar-big-emoji { animation-delay: .9s; }
+    .bienestar-card:nth-child(5) .bienestar-big-emoji { animation-delay: 1.2s; }
+    .bienestar-card:nth-child(6) .bienestar-big-emoji { animation-delay: 1.5s; }
+    @keyframes floatEmoji {
+      0%,100% { transform: translateY(0) rotate(-3deg); }
+      50%      { transform: translateY(-7px) rotate(3deg); }
+    }
+    .bienestar-card-title {
+      font-size: 14px; font-weight: 800; color: var(--text-dark); margin-bottom: 8px;
+    }
+    .bienestar-card-desc {
+      font-size: 12px; color: var(--gris-text); line-height: 1.6; font-weight: 500;
+    }
+    .bienestar-card-tag {
+      display: inline-block; margin-top: 12px;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--azul); background: var(--azul-light);
+      padding: 4px 10px; border-radius: 20px;
+    }
+
+    /* ══════════════════════════════════════════
+       MATERIAL DE ESTUDIO
+    ══════════════════════════════════════════ */
+    .material-card {
+      background: white; border-radius: var(--radius-lg);
+      padding: 40px 36px; text-align: center;
+      box-shadow: var(--shadow-md); border: 1px solid var(--gris-line);
+      position: relative; overflow: hidden;
+    }
+    .material-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+      background: linear-gradient(90deg, var(--naranja), var(--azul));
+    }
+    .material-icon { font-size: 40px; display: block; margin-bottom: 12px; }
+    .material-title { font-size: 22px; font-weight: 900; color: var(--text-dark); margin-bottom: 8px; }
+    .material-sub { font-size: 14px; color: var(--gris-text); margin-bottom: 28px; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+    .btn-material {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 15px 36px; border-radius: 50px;
+      background: linear-gradient(135deg, var(--naranja), #e85a00);
+      color: white; text-decoration: none; font-family: var(--font);
+      font-size: 14px; font-weight: 800;
+      box-shadow: 0 6px 22px rgba(255,107,0,.38);
+      transition: transform var(--t), box-shadow var(--t);
+      animation: matPulse 2.8s ease-in-out infinite;
+    }
+    .btn-material:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(255,107,0,.5); animation: none; }
+    .btn-material svg { width: 18px; height: 18px; fill: white; }
+    @keyframes matPulse {
+      0%,100% { box-shadow: 0 6px 22px rgba(255,107,0,.38); }
+      50%      { box-shadow: 0 6px 32px rgba(255,107,0,.62), 0 0 0 8px rgba(255,107,0,.08); }
+    }
+
+    /* ══════════════════════════════════════════
+       ACTIVIDAD — AVATAR LOTTIE
+    ══════════════════════════════════════════ */
+    .actividad-wrap {
+      background: white; border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden; position: relative;
+    }
+    .actividad-header {
+      background: linear-gradient(135deg, var(--azul-dark), var(--azul));
+      padding: 28px 36px;
+    }
+    .actividad-header-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 6px;
+    }
+    .actividad-header-title {
+      font-size: 22px; font-weight: 900; color: white;
+    }
+
+    .actividad-body {
+      padding: 40px 36px;
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; gap: 0;
+    }
+
+    /* Lottie container */
+    #lottieAvatar {
+      width: 220px; height: 220px;
+      display: block;
+    }
+
+    /* Burbuja de diálogo */
+    .bubble-wrap {
+      position: relative;
+      margin-top: 4px;
+      margin-bottom: 28px;
+    }
+    .bubble {
+      background: var(--gris-bg);
+      border: 2px solid var(--gris-line);
+      border-radius: var(--radius-md);
+      padding: 18px 24px;
+      max-width: 480px;
+      font-size: 16px; font-weight: 600;
+      color: var(--text-body);
+      line-height: 1.6;
+      position: relative;
+      min-height: 64px;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color .4s, background .4s;
+    }
+    .bubble::before {
+      content: '';
+      position: absolute; top: -12px; left: 50%;
+      transform: translateX(-50%);
+      border: 10px solid transparent;
+      border-bottom-color: var(--gris-line);
+    }
+    .bubble::after {
+      content: '';
+      position: absolute; top: -9px; left: 50%;
+      transform: translateX(-50%);
+      border: 9px solid transparent;
+      border-bottom-color: var(--gris-bg);
+    }
+    .bubble.highlight {
+      background: var(--naranja-lt);
+      border-color: var(--naranja);
+      color: var(--text-dark);
+      font-weight: 800;
+      font-size: 18px;
+    }
+    .bubble.highlight::before { border-bottom-color: var(--naranja); }
+    .bubble.highlight::after  { border-bottom-color: var(--naranja-lt); }
+
+    /* Cursor parpadeante */
+    .bubble-cursor {
+      display: inline-block; width: 2px; height: 1.1em;
+      background: var(--azul); margin-left: 2px;
+      vertical-align: middle;
+      animation: cursorBlink .7s step-end infinite;
+    }
+    @keyframes cursorBlink { 50% { opacity: 0; } }
+
+    /* Indicador de estado */
+    .avatar-status {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--gris-text); margin-bottom: 20px;
+    }
+    .avatar-status-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #f59e0b;
+      animation: statusPulse 1.2s ease-in-out infinite;
+    }
+    .avatar-status-dot.active { background: #22c55e; animation: none; }
+    @keyframes statusPulse { 50% { opacity: .3; transform: scale(.8); } }
+
+    /* Botón revelar pista */
+    .btn-reveal {
+      display: none;
+      align-items: center; gap: 10px;
+      padding: 15px 36px; border-radius: 50px;
+      background: linear-gradient(135deg, var(--azul), #005bb5);
+      color: white; border: none; cursor: pointer;
+      font-family: var(--font); font-size: 14px; font-weight: 800;
+      box-shadow: 0 6px 22px rgba(0,72,142,.35);
+      transition: transform var(--t), box-shadow var(--t);
+      animation: revealPulse 2.5s ease-in-out infinite;
+    }
+    .btn-reveal.visible { display: inline-flex; }
+    .btn-reveal:hover { transform: scale(1.05); animation: none; box-shadow: 0 10px 30px rgba(0,72,142,.5); }
+    .btn-reveal svg { width: 20px; height: 20px; fill: white; }
+    @keyframes revealPulse {
+      0%,100% { box-shadow: 0 6px 22px rgba(0,72,142,.35); }
+      50%      { box-shadow: 0 6px 36px rgba(0,72,142,.6), 0 0 0 10px rgba(0,72,142,.07); }
+    }
+
+    /* Pista final revelada */
+    .pista-final {
+      display: none;
+      margin-top: 24px;
+      background: linear-gradient(135deg, var(--naranja-lt), #fff);
+      border: 3px solid var(--naranja);
+      border-radius: var(--radius-md);
+      padding: 24px 28px;
+      max-width: 480px;
+      text-align: center;
+      animation: pistaIn .6s cubic-bezier(.34,1.56,.64,1);
+    }
+    .pista-final.visible { display: block; }
+    @keyframes pistaIn { from { opacity: 0; transform: scale(.9) translateY(10px); } }
+    .pista-emoji { font-size: 36px; display: block; margin-bottom: 10px; }
+    .pista-text {
+      font-size: 20px; font-weight: 900;
+      color: var(--text-dark); line-height: 1.4;
+    }
+    .pista-text span { color: var(--naranja); }
+    .pista-sub {
+      font-size: 13px; color: var(--gris-text);
+      margin-top: 8px; font-weight: 500;
+    }
+
+    /* ══════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════ */
+    .page-footer {
+      text-align: center; padding: 24px;
+      font-size: 12px; color: var(--gris-text); font-weight: 500;
+      border-top: 1px solid var(--gris-line);
+    }
+
+    /* ══════════════════════════════════════════
+       ANIMACIONES DE ENTRADA
+    ══════════════════════════════════════════ */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in { opacity: 0; animation: fadeInUp .6s ease forwards; }
+    .d1 { animation-delay: .1s; }
+    .d2 { animation-delay: .2s; }
+    .d3 { animation-delay: .3s; }
+    .d4 { animation-delay: .4s; }
+    .d5 { animation-delay: .5s; }
+    .d6 { animation-delay: .6s; }
+
+    /* ══════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════ */
+    @media (max-width: 700px) {
+      .brand-block { flex-direction: column; align-items: flex-start; gap: 24px; padding: 28px 20px; }
+      .brand-name { font-size: 26px; }
+      .brand-lema { font-size: 16px; }
+    }
+    @media (max-width: 600px) {
+      .pillars-grid { grid-template-columns: 1fr; }
+      .bienestar-grid { grid-template-columns: 1fr; }
+      .page-main { padding: 28px 16px 80px; gap: 36px; }
+      .actividad-body { padding: 28px 18px; }
+      .actividad-header { padding: 22px 20px; }
+      #lottieAvatar { width: 170px; height: 170px; }
+    }
+    @media (max-width: 420px) { .btn-back span { display: none; } }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<header class="hero">
+  <!-- Logo decorativo de fondo -->
+  <div class="hero-logo-float">
+    <svg viewBox="0 0 52 52" fill="none">
+      <path d="M10 26C10 17.163 17.163 10 26 10C31.37 10 36.09 12.66 39.04 16.72L34.2 19.86C32.34 17.38 29.36 15.8 26 15.8C20.37 15.8 15.8 20.37 15.8 26C15.8 31.63 20.37 36.2 26 36.2C29.36 36.2 32.34 34.62 34.2 32.14L39.04 35.28C36.09 39.34 31.37 42 26 42C17.163 42 10 34.837 10 26Z" fill="white"/>
+      <path d="M30 22H42V26H30V22Z" fill="#FF6B00"/>
+    </svg>
+  </div>
+
+  <div class="hero-inner">
+    <nav class="hero-nav">
+      <a href="index.html" class="hero-logo">
+        <div class="hero-logo-mark">
+          <svg viewBox="0 0 52 52" fill="none">
+            <path d="M10 26C10 17.163 17.163 10 26 10C31.37 10 36.09 12.66 39.04 16.72L34.2 19.86C32.34 17.38 29.36 15.8 26 15.8C20.37 15.8 15.8 20.37 15.8 26C15.8 31.63 20.37 36.2 26 36.2C29.36 36.2 32.34 34.62 34.2 32.14L39.04 35.28C36.09 39.34 31.37 42 26 42C17.163 42 10 34.837 10 26Z" fill="white"/>
+            <path d="M30 22H42V26H30V22Z" fill="#FF6B00"/>
+          </svg>
+        </div>
+        <span>CARVAJAL</span>
+      </a>
+      <a href="index.html" class="btn-back">
+        <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+        <span>Volver</span>
+      </a>
+    </nav>
+
+    <p class="hero-badge">Parada 2 · Día 2 de Inducción</p>
+    <h1 class="hero-title">Introducción a la<br/><em>Administración</em></h1>
+    <p class="hero-sub">
+      Conoce la estructura organizacional, los valores, el propósito y la estrategia
+      que hacen de Carvajal S.A. una empresa de clase mundial por más de 120 años.
+    </p>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════
+     LEMA ANIMADO
+══════════════════════════════════════ -->
+<div class="lema-band" aria-hidden="true">
+  <div class="lema-track" id="lemaTrack">
+    <!-- Duplicado para loop infinito — generado por JS -->
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     MAIN
+══════════════════════════════════════ -->
+<main class="page-main">
+
+  <!-- ── BLOQUE: LOGO + LEMA ── -->
+  <div class="fade-in d1">
+    <p class="section-label">Identidad Corporativa</p>
+    <div class="brand-block">
+      <div class="brand-logo-wrap">
+        <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 60C20 37.9 37.9 20 60 20C73.2 20 84.9 26.4 92.2 36.3L80.5 43.9C75.5 37.1 67.3 32.7 60 32.7C44.7 32.7 32.7 44.7 32.7 60C32.7 75.3 44.7 87.3 60 87.3C67.3 87.3 75.5 82.9 80.5 76.1L92.2 83.7C84.9 93.6 73.2 100 60 100C37.9 100 20 82.1 20 60Z" fill="white"/>
+          <path d="M72 48H100V60H72V48Z" fill="#FF6B00"/>
+          <path d="M72 60H100V72H72V60Z" fill="rgba(255,255,255,0.35)"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <p class="brand-name">CARVAJAL</p>
+        <p class="brand-tagline">Fundada en 1904 · Cali, Colombia</p>
+        <p class="brand-lema">
+          "En Carvajal<br/>
+          <span>hacemos las cosas bien."</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PILARES ORGANIZACIONALES ── -->
+  <div class="fade-in d2">
+    <p class="section-label">Pilares Organizacionales</p>
+    <div class="pillars-grid" id="pillaresGrid"><!-- JS --></div>
+  </div>
+
+  <!-- ── ORGANIGRAMA ── -->
+  <div class="fade-in d3">
+    <p class="section-label">Estructura Organizacional</p>
+    <div class="org-wrap">
+      <div class="org-tree">
+        <!-- Nivel 1: Junta -->
+        <div class="org-level">
+          <div class="org-node">
+            <div class="org-box top">Junta Directiva</div>
+          </div>
+        </div>
+        <div class="org-line-v"></div>
+        <!-- Nivel 2: Presidente -->
+        <div class="org-level">
+          <div class="org-node">
+            <div class="org-box top" style="background:#005bb5;">Presidencia Ejecutiva</div>
+          </div>
+        </div>
+        <div class="org-line-v"></div>
+        <!-- Nivel 3: VPs -->
+        <div style="position:relative; display:flex; justify-content:center; width:100%;">
+          <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
+            <div class="org-node">
+              <div class="org-line-v" style="height:20px;"></div>
+              <div class="org-box mid">Vicepresidencia<br/>Empaques</div>
+            </div>
+            <div class="org-node">
+              <div class="org-line-v" style="height:20px;"></div>
+              <div class="org-box mid">Vicepresidencia<br/>Educación</div>
+            </div>
+            <div class="org-node">
+              <div class="org-line-v" style="height:20px;"></div>
+              <div class="org-box mid">Vicepresidencia<br/>Tecnología</div>
+            </div>
+            <div class="org-node">
+              <div class="org-line-v" style="height:20px;"></div>
+              <div class="org-box mid">Vicepresidencia<br/>Pulpa y Papel</div>
+            </div>
+          </div>
+        </div>
+        <div style="height:16px;"></div>
+        <!-- Nivel 4: Áreas transversales -->
+        <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
+          <div class="org-box low">Finanzas</div>
+          <div class="org-box low">Talento Humano</div>
+          <div class="org-box low">Sostenibilidad</div>
+          <div class="org-box low">Marketing</div>
+          <div class="org-box low">Innovación</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── MARKETING ── -->
+  <div class="fade-in d4">
+    <p class="section-label">Enfoque de Marketing</p>
+    <div class="marketing-list" id="marketingList"><!-- JS --></div>
+  </div>
+
+  <!-- ── VALORES ── -->
+  <div class="fade-in d4">
+    <p class="section-label">Valores Corporativos</p>
+    <div class="valores-grid" id="valoresGrid"><!-- JS --></div>
+  </div>
+
+  <!-- ── BIENESTAR ── -->
+  <div class="fade-in d5">
+    <p class="section-label">Bienestar Laboral</p>
+    <!-- Frase ancla -->
+    <div class="bienestar-intro">
+      <span class="bienestar-intro-icon">🏠</span>
+      <div>
+        <p class="bienestar-intro-label">Nuestro compromiso</p>
+        <h3 class="bienestar-intro-title">Carvajal: tu <span>segundo hogar</span></h3>
+        <p class="bienestar-intro-sub">
+          Más que un lugar de trabajo, en Carvajal somos una familia. Cada colaborador
+          encuentra aquí un espacio donde crecer, sentirse seguro y construir
+          un proyecto de vida con propósito.
+        </p>
+      </div>
+    </div>
+    <!-- Tarjetas ilustrativas -->
+    <div class="bienestar-grid" id="bienestarGrid"><!-- JS --></div>
+  </div>
+
+  <!-- ── MATERIAL DE ESTUDIO ── -->
+  <div class="fade-in d5">
+    <p class="section-label">Material de Estudio</p>
+    <div class="material-card">
+      <span class="material-icon">📚</span>
+      <h2 class="material-title">Recursos de esta estación</h2>
+      <p class="material-sub">
+        Accede al material de estudio preparado para la Estación 2.
+        Encontrarás una presentación elaborada para ti.
+      </p>
+      <a href="https://drive.google.com/drive/folders/1if2NWkbJ3wYDaptyV5B90xhpa-WjJoYD?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-material">
+        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+        Ver material
+      </a>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       ACTIVIDAD — AVATAR LOTTIE
+  ══════════════════════════════════════ -->
+  <div class="fade-in d6">
+    <p class="section-label">Actividad de Cierre</p>
+    <div class="actividad-wrap">
+
+      <div class="actividad-header">
+        <p class="actividad-header-label">🎯 Dinámica sorpresa</p>
+        <h3 class="actividad-header-title">¿Puedes resolver el misterio?</h3>
+      </div>
+
+      <div class="actividad-body">
+
+        <div class="avatar-status" id="avatarStatus">
+          <span class="avatar-status-dot" id="statusDot"></span>
+          <span id="statusText">Cargando personaje...</span>
+        </div>
+
+        <!-- Lottie -->
+        <div id="lottieAvatar"></div>
+
+        <!-- Burbuja de diálogo -->
+        <div class="bubble-wrap">
+          <div class="bubble" id="bubble">
+            <span id="bubbleText"></span><span class="bubble-cursor" id="bubbleCursor"></span>
+          </div>
+        </div>
+
+        <!-- Botón revelar -->
+        <button class="btn-reveal" id="btnReveal">
+          <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+          Revelar la pista
+        </button>
+
+        <!-- Pista final -->
+        <div class="pista-final" id="pistaFinal">
+          <span class="pista-emoji">🪑</span>
+          <p class="pista-text">
+            "La respuesta puede estar<br/>
+            <span>debajo de tu silla..."</span>
+          </p>
+          <p class="pista-sub">Te indicarán qué hacer con lo que encuentres.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="page-footer">
+  <p>© 2025 Carvajal S.A. · Actividad académica</p>
+</footer>
+
+<!-- ══════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════ -->
+<script>
+'use strict';
+
+/* ════════════════════════════════════════════════
+   DATOS — PILARES ORGANIZACIONALES
+════════════════════════════════════════════════ */
+const PILARES = [
+  {
+    emoji: '🎯', label: 'Propósito',
+    titulo: 'Propósito Organizacional',
+    preview: 'La razón de ser de Carvajal en el mundo.',
+    body: 'El propósito de Carvajal S.A. es <strong>transformar vidas</strong> a través de soluciones innovadoras en empaques, educación, tecnología y papel. Cada decisión empresarial parte de generar valor sostenible para sus grupos de interés: colaboradores, clientes, comunidades y accionistas.'
+  },
+  {
+    emoji: '🔭', label: 'Misión',
+    titulo: 'Misión',
+    preview: 'Crear valor sostenible con soluciones innovadoras.',
+    body: 'Crear soluciones innovadoras y sostenibles que generen valor para nuestros clientes, colaboradores, accionistas y comunidades, con excelencia operacional y principios éticos sólidos.'
+  },
+  {
+    emoji: '🌟', label: 'Visión',
+    titulo: 'Visión',
+    preview: 'Ser referente latinoamericano de excelencia.',
+    body: 'Ser la empresa de referencia en América Latina por la creación de valor sostenible, reconocida por la excelencia de sus soluciones, la solidez de su gobierno corporativo y el impacto positivo que genera en las comunidades donde opera.'
+  },
+  {
+    emoji: '🧭', label: 'Enfoque Estratégico',
+    titulo: 'Enfoque Estratégico',
+    preview: 'Innovación, sostenibilidad y transformación digital.',
+    body: 'El enfoque estratégico de Carvajal se articula en tres ejes: <strong>(1) Transformación digital</strong> de sus unidades de negocio, <strong>(2) Sostenibilidad</strong> como ventaja competitiva y motor de crecimiento, y <strong>(3) Innovación centrada en el cliente</strong> para anticiparse a las necesidades del mercado.'
+  },
+  {
+    emoji: '🤝', label: 'Gobierno Corporativo',
+    titulo: 'Gobierno Corporativo',
+    preview: 'Transparencia, ética y familia como pilar.',
+    body: 'Carvajal cuenta con una Junta Directiva diversa e independiente, un Comité de Auditoría, Comité de Sostenibilidad y un Código de Ética robusto.'
+  },
+  {
+    emoji: '🌱', label: 'Sostenibilidad',
+    titulo: 'Compromiso con la Sostenibilidad',
+    preview: 'Impacto positivo en personas y planeta.',
+    body: 'Carvajal publica un Reporte de Sostenibilidad anual alineado con los estándares GRI. Sus compromisos incluyen carbono, neutralidad, economía circular en empaques, inclusión de género, y educación para comunidades vulnerables a través de la Fundación Carvajal.'
+  }
+];
+
+/* ════════════════════════════════════════════════
+   DATOS — MARKETING
+════════════════════════════════════════════════ */
+const MARKETING_ITEMS = [
+  { emoji: '🎯', titulo: 'Segmentación de mercado',
+    desc: 'Carvajal segmenta sus mercados por unidad de negocio: consumo masivo para empaques, instituciones educativas para Norma, grandes empresas para tecnología y empresas papeleras para Propal.' },
+  { emoji: '💡', titulo: 'Propuesta de valor',
+    desc: 'No compiten solo por precio: su propuesta de valor se basa en calidad, innovación, servicio postventa y la solidez de una marca con 120 años de reputación en América Latina.' },
+  { emoji: '📣', titulo: 'Canales de distribución',
+    desc: 'Utilizan canales directos (fuerza de ventas propia), distribuidores regionales, plataformas digitales B2B y alianzas estratégicas con grandes superficies.' },
+  { emoji: '🔄', titulo: 'Marketing de relaciones',
+    desc: 'Carvajal invierte en programas de fidelización, soporte técnico especializado y cocreación con clientes, apostando por relaciones de largo plazo sobre transacciones únicas.' }
+];
+
+/* ════════════════════════════════════════════════
+   DATOS — VALORES
+════════════════════════════════════════════════ */
+const VALORES = [
+  { emoji: '⚖️',  nombre: 'Integridad'       },
+  { emoji: '🚀',  nombre: 'Innovación'        },
+  { emoji: '🤝',  nombre: 'Compromiso'        },
+  { emoji: '🌍',  nombre: 'Sostenibilidad'    },
+  { emoji: '💡',  nombre: 'Excelencia'        },
+  { emoji: '❤️',  nombre: 'Respeto'           },
+  { emoji: '👥',  nombre: 'Trabajo en equipo' },
+  { emoji: '🎯',  nombre: 'Orientación al cliente' },
+  { emoji: '🔒',  nombre: 'Responsabilidad'   }
+];
+
+/* ════════════════════════════════════════════════
+   DATOS — BIENESTAR (SEGUNDO HOGAR)
+════════════════════════════════════════════════ */
+const BIENESTAR = [
+  { emoji: '❤️', titulo: 'Familia ante todo',
+    desc: 'En Carvajal las personas importan más que los números. El bienestar de cada colaborador y su familia es una prioridad real, no un discurso.',
+    tag: 'Cultura' },
+  { emoji: '🌱', titulo: 'Crecimiento continuo',
+    desc: 'Acceso a formación, becas educativas y planes de carrera para que cada persona alcance su mejor versión dentro y fuera del trabajo.',
+    tag: 'Desarrollo' },
+  { emoji: '⚖️', titulo: 'Balance vida · trabajo',
+    desc: 'Horarios flexibles, teletrabajo y políticas de desconexión digital para que el trabajo sea parte de la vida, no toda la vida.',
+    tag: 'Flexibilidad' },
+  { emoji: '🏥', titulo: 'Salud integral',
+    desc: 'Plan de salud familiar, espacios de bienestar físico y programas de salud mental para que todos lleguen bien a casa cada día.',
+    tag: 'Salud' },
+  { emoji: '🎉', titulo: 'Celebramos juntos',
+    desc: 'Reconocimientos, celebración de logros y actividades de integración que fortalecen los vínculos entre equipos y construyen comunidad.',
+    tag: 'Comunidad' },
+  { emoji: '🤝', titulo: 'Diversidad e inclusión',
+    desc: 'Un ambiente donde cada persona puede ser auténtica. La diversidad es una fortaleza que enriquece la cultura viva de Carvajal.',
+    tag: 'Inclusión' }
+];
+
+/* ════════════════════════════════════════════════
+   GUIÓN DE DIÁLOGO DEL AVATAR
+   Cada objeto: { texto, delay (ms desde inicio) }
+════════════════════════════════════════════════ */
+const GUION = [
+  { texto: 'Hmm... 🤔 algo no cuadra...', delay: 1200 },
+  { texto: 'No encuentro la respuesta por ningún lado... 😕', delay: 4500 },
+  { texto: '¡Espera! Hay una pista escondida...', delay: 8200 },
+  { texto: '¿Dónde estará? 🔍', delay: 11500 },
+  { texto: '¡Creo que sé dónde buscar! 💡', delay: 14500, highlight: true }
+];
+
+/* ════════════════════════════════════════════════
+   RENDER: LEMA SCROLLING
+════════════════════════════════════════════════ */
+function renderLema() {
+  const lema = '✦ En Carvajal hacemos las cosas bien';
+  const track = document.getElementById('lemaTrack');
+  // Duplicar para loop infinito
+  for (let i = 0; i < 12; i++) {
+    const item = document.createElement('span');
+    item.className = 'lema-item';
+    item.innerHTML = `<span class="lema-dot"></span>${lema}`;
+    track.appendChild(item);
+  }
+}
+
+/* ════════════════════════════════════════════════
+   RENDER: PILARES
+════════════════════════════════════════════════ */
+function renderPilares() {
+  const grid = document.getElementById('pillaresGrid');
+  PILARES.forEach((p, i) => {
+    const card = document.createElement('div');
+    card.className = 'pillar-card';
+    card.style.animationDelay = `${i * 0.08}s`;
+    card.innerHTML = `
+      <div class="pillar-icon">${p.emoji}</div>
+      <p class="pillar-label">${p.label}</p>
+      <h4 class="pillar-title">${p.titulo}</h4>
+      <p class="pillar-preview">${p.preview}</p>
+      <div class="pillar-body">${p.body}</div>
+      <span class="pillar-toggle">Ver más
+        <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+      </span>`;
+    card.addEventListener('click', () => {
+      const open = card.classList.contains('expanded');
+      card.classList.toggle('expanded');
+      card.querySelector('.pillar-toggle').firstChild.textContent = open ? 'Ver más ' : 'Ver menos ';
+    });
+    grid.appendChild(card);
+  });
+}
+
+/* ════════════════════════════════════════════════
+   RENDER: MARKETING
+════════════════════════════════════════════════ */
+function renderMarketing() {
+  const list = document.getElementById('marketingList');
+  MARKETING_ITEMS.forEach(m => {
+    const card = document.createElement('div');
+    card.className = 'mkt-card';
+    card.innerHTML = `
+      <div class="mkt-icon">${m.emoji}</div>
+      <div>
+        <p class="mkt-title">${m.titulo}</p>
+        <p class="mkt-desc">${m.desc}</p>
+      </div>`;
+    list.appendChild(card);
+  });
+}
+
+/* ════════════════════════════════════════════════
+   RENDER: VALORES
+════════════════════════════════════════════════ */
+function renderValores() {
+  const grid = document.getElementById('valoresGrid');
+  VALORES.forEach((v, i) => {
+    const chip = document.createElement('div');
+    chip.className = 'valor-chip';
+    chip.style.animationDelay = `${i * 0.07}s`;
+    chip.innerHTML = `<span class="chip-icon">${v.emoji}</span>${v.nombre}`;
+    grid.appendChild(chip);
+  });
+}
+
+/* ════════════════════════════════════════════════
+   RENDER: BIENESTAR — TARJETAS ILUSTRATIVAS
+════════════════════════════════════════════════ */
+function renderBienestar() {
+  const grid = document.getElementById('bienestarGrid');
+  BIENESTAR.forEach((b, i) => {
+    const card = document.createElement('div');
+    card.className = 'bienestar-card';
+    card.style.animationDelay = `${i * 0.1}s`;
+    card.innerHTML = `
+      <span class="bienestar-big-emoji">${b.emoji}</span>
+      <p class="bienestar-card-title">${b.titulo}</p>
+      <p class="bienestar-card-desc">${b.desc}</p>
+      <span class="bienestar-card-tag">${b.tag}</span>`;
+    grid.appendChild(card);
+  });
+}
+
+/* ════════════════════════════════════════════════
+   AVATAR LOTTIE + GUIÓN ANIMADO
+════════════════════════════════════════════════ */
+function initAvatar() {
+
+  // URLs de respaldo — se intenta la primera, si falla la siguiente
+  const LOTTIE_URLS = [
+    'https://assets2.lottiefiles.com/packages/lf20_qp1q7mct.json', // thinking man
+    'https://assets3.lottiefiles.com/packages/lf20_jcikwtux.json', // confused robot
+    'https://assets9.lottiefiles.com/packages/lf20_vnikrcia.json'  // question mark character
+  ];
+
+  const container = document.getElementById('lottieAvatar');
+  const statusDot  = document.getElementById('statusDot');
+  const statusText = document.getElementById('statusText');
+
+  function cargarLottie(urlIndex) {
+    if (urlIndex >= LOTTIE_URLS.length) {
+      // Fallback SVG animado si ninguna URL carga
+      container.innerHTML = `
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+          <style>
+            .head { animation: headShake 1.5s ease-in-out infinite; transform-origin: 100px 80px; }
+            @keyframes headShake {
+              0%,100%{transform:rotate(-8deg)} 25%{transform:rotate(8deg)}
+              50%{transform:rotate(-5deg)}     75%{transform:rotate(5deg)}
+            }
+            .eye { animation: blink 2.5s step-end infinite; }
+            @keyframes blink { 0%,90%,100%{transform:scaleY(1)} 95%{transform:scaleY(0.1)} }
+            .sweat { animation: dropFall 2s ease-in infinite; }
+            @keyframes dropFall {
+              0%{transform:translateY(0);opacity:1} 100%{transform:translateY(20px);opacity:0}
+            }
+            .qmark { animation: qFloat 1.8s ease-in-out infinite alternate; }
+            @keyframes qFloat { from{transform:translateY(0)} to{transform:translateY(-10px)} }
+            .body { animation: bodyRock 1.5s ease-in-out infinite; transform-origin:100px 140px; }
+            @keyframes bodyRock {
+              0%,100%{transform:rotate(-3deg)} 50%{transform:rotate(3deg)}
+            }
+          </style>
+          <!-- Cuerpo -->
+          <g class="body">
+            <rect x="75" y="130" width="50" height="55" rx="10" fill="#00488e"/>
+            <!-- Brazos -->
+            <rect x="45" y="133" width="32" height="12" rx="6" fill="#00488e" transform="rotate(-20,61,139)"/>
+            <rect x="123" y="133" width="32" height="12" rx="6" fill="#00488e" transform="rotate(20,139,139)"/>
+            <!-- Piernas -->
+            <rect x="80" y="182" width="14" height="20" rx="7" fill="#003368"/>
+            <rect x="106" y="182" width="14" height="20" rx="7" fill="#003368"/>
+          </g>
+          <!-- Cabeza -->
+          <g class="head">
+            <circle cx="100" cy="82" r="38" fill="#ffcc99"/>
+            <!-- Cejas preocupadas -->
+            <path d="M82 62 Q88 57 94 62" stroke="#333" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M106 62 Q112 57 118 62" stroke="#333" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <!-- Ojos -->
+            <g class="eye" style="transform-origin:88px 74px">
+              <ellipse cx="88" cy="74" rx="6" ry="7" fill="#333"/>
+              <circle cx="90" cy="72" r="2" fill="white"/>
+            </g>
+            <g class="eye" style="transform-origin:112px 74px">
+              <ellipse cx="112" cy="74" rx="6" ry="7" fill="#333"/>
+              <circle cx="114" cy="72" r="2" fill="white"/>
+            </g>
+            <!-- Boca preocupada -->
+            <path d="M90 98 Q100 93 110 98" stroke="#333" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <!-- Sudor -->
+            <ellipse class="sweat" cx="128" cy="65" rx="4" ry="6" fill="#7ec8e3"/>
+          </g>
+          <!-- Signos de interrogación -->
+          <text class="qmark" x="138" y="55" font-size="24" fill="#FF6B00" font-weight="900" font-family="Arial">?</text>
+          <text class="qmark" x="48" y="65" font-size="18" fill="#00488e" font-weight="900" font-family="Arial" style="animation-delay:.4s">?</text>
+        </svg>`;
+      statusDot.classList.add('active');
+      statusText.textContent = 'Personaje listo';
+      setTimeout(() => { statusText.parentElement.style.display = 'none'; }, 2000);
+      return;
+    }
+
+    const anim = lottie.loadAnimation({
+      container, renderer: 'svg', loop: true, autoplay: true,
+      path: LOTTIE_URLS[urlIndex]
+    });
+
+    anim.addEventListener('DOMLoaded', () => {
+      statusDot.classList.add('active');
+      statusText.textContent = 'Personaje listo';
+      setTimeout(() => { statusText.parentElement.style.display = 'none'; }, 2000);
+    });
+
+    anim.addEventListener('data_failed', () => {
+      anim.destroy();
+      cargarLottie(urlIndex + 1);
+    });
+  }
+
+  cargarLottie(0);
+
+  // Variables de diálogo
+  const bubbleEl   = document.getElementById('bubble');
+  const bubbleTxt  = document.getElementById('bubbleText');
+  const cursor     = document.getElementById('bubbleCursor');
+  const btnReveal  = document.getElementById('btnReveal');
+  const pistaFinal = document.getElementById('pistaFinal');
+
+  /* Typewriter */
+  function typeText(texto, onDone) {
+    bubbleTxt.textContent = '';
+    cursor.style.display = 'inline-block';
+    let i = 0;
+    const iv = setInterval(() => {
+      if (i < texto.length) {
+        bubbleTxt.textContent += texto[i++];
+      } else {
+        clearInterval(iv);
+        cursor.style.display = 'none';
+        if (onDone) onDone();
+      }
+    }, 38);
+  }
+
+  /* Ejecutar guión */
+  GUION.forEach((linea, idx) => {
+    setTimeout(() => {
+      if (linea.highlight) {
+        bubbleEl.classList.add('highlight');
+      } else {
+        bubbleEl.classList.remove('highlight');
+      }
+      typeText(linea.texto, idx === GUION.length - 1 ? () => {
+        // Mostrar botón de revelar al terminar el guión
+        setTimeout(() => btnReveal.classList.add('visible'), 800);
+      } : null);
+    }, linea.delay);
+  });
+
+  /* Botón revelar pista */
+  btnReveal.addEventListener('click', () => {
+    btnReveal.style.display = 'none';
+    bubbleEl.classList.add('highlight');
+    typeText('¡Mira debajo de tu silla! 🪑', () => {
+      setTimeout(() => {
+        pistaFinal.classList.add('visible');
+        pistaFinal.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 500);
+    });
+  });
+}
+
+/* ════════════════════════════════════════════════
+   INICIALIZACIÓN
+════════════════════════════════════════════════ */
+document.addEventListener('DOMContentLoaded', () => {
+  renderLema();
+  renderPilares();
+  renderMarketing();
+  renderValores();
+  renderBienestar();
+  initAvatar();
+});
+</script>
+</body>
+</html>
