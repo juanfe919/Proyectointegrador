@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Historia Carvajal · Datos y Actividad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    /* ══════════════════════════════════════════
+       TOKENS — misma paleta del proyecto
+    ══════════════════════════════════════════ */
+    :root {
+      --azul:        #00488e;
+      --azul-dark:   #003368;
+      --azul-light:  #cfe3f5;
+      --naranja:     #FF6B00;
+      --gris-bg:     #f4f7f9;
+      --gris-card:   #ffffff;
+      --gris-line:   #e2eaf2;
+      --gris-text:   #6b7f96;
+      --text-dark:   #0d1f35;
+      --text-body:   #2d4157;
+      --shadow-sm:   0 2px 12px rgba(0,72,142,.08);
+      --shadow-md:   0 8px 32px rgba(0,72,142,.14);
+      --shadow-lg:   0 20px 60px rgba(0,72,142,.20);
+      --radius-sm:   10px;
+      --radius-md:   18px;
+      --radius-lg:   28px;
+      --font:        'Montserrat', sans-serif;
+      --t:           0.35s cubic-bezier(.4,0,.2,1);
+      /* colores sector */
+      --c-empaques:   #0077b6;
+      --c-educacion:  #e63946;
+      --c-tecnologia: #2a9d8f;
+      --c-papel:      #c49a1a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--gris-bg);
+      color: var(--text-body);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ══════════════════════════════════════════
+       HEADER
+    ══════════════════════════════════════════ */
+    .page-header {
+      background: linear-gradient(135deg, var(--azul-dark) 0%, var(--azul) 60%, #005bb5 100%);
+      padding: 0 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::after {
+      content: '';
+      position: absolute; bottom: -1px; left: 0; right: 0;
+      height: 44px; background: var(--gris-bg);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+    .page-header::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 90% 20%, rgba(255,107,0,.2) 0%, transparent 40%),
+        repeating-linear-gradient(45deg, transparent, transparent 40px,
+          rgba(255,255,255,.02) 40px, rgba(255,255,255,.02) 41px);
+      pointer-events: none;
+    }
+    .header-inner {
+      max-width: 900px; margin: 0 auto;
+      padding: 20px 0 54px; position: relative; z-index: 1;
+    }
+    .header-nav {
+      display: flex; align-items: center;
+      justify-content: space-between; margin-bottom: 32px;
+    }
+    .header-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .header-logo-mark {
+      width: 40px; height: 40px;
+      background: rgba(255,255,255,.15); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(255,255,255,.25);
+    }
+    .header-logo-mark svg { width: 24px; height: 24px; }
+    .header-logo span { font-size: 16px; font-weight: 900; letter-spacing: 3px; color: white; }
+    .btn-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: rgba(255,255,255,.8); font-size: 12px; font-weight: 600;
+      letter-spacing: 1px; text-transform: uppercase;
+      text-decoration: none;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 8px; padding: 8px 14px;
+      transition: background var(--t), color var(--t);
+    }
+    .btn-back:hover { background: rgba(255,255,255,.22); color: white; }
+    .btn-back svg { width: 14px; height: 14px; fill: currentColor; }
+    .header-eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--naranja); margin-bottom: 10px;
+    }
+    .header-title {
+      font-size: clamp(26px, 5vw, 40px); font-weight: 900;
+      color: white; line-height: 1.15; margin-bottom: 12px;
+    }
+    .header-title em { font-style: normal; color: var(--naranja); }
+    .header-sub {
+      font-size: 14px; color: rgba(255,255,255,.72);
+      font-weight: 400; max-width: 500px; line-height: 1.65;
+    }
+    .progress-bar-wrap {
+      margin-top: 26px; background: rgba(255,255,255,.15);
+      border-radius: 8px; height: 8px; overflow: hidden; max-width: 320px;
+    }
+    .progress-bar-fill {
+      height: 100%; background: linear-gradient(90deg, var(--naranja), #ffb347);
+      border-radius: 8px; width: 0%;
+      transition: width 0.9s cubic-bezier(.4,0,.2,1);
+    }
+    .progress-label { font-size: 11px; color: rgba(255,255,255,.6); margin-top: 6px; font-weight: 600; }
+    #progressCount { color: var(--naranja); font-weight: 800; }
+
+    /* ══════════════════════════════════════════
+       MAIN
+    ══════════════════════════════════════════ */
+    .page-main { max-width: 900px; margin: 0 auto; padding: 44px 24px 100px; }
+
+    .instructions-band {
+      background: white; border-radius: var(--radius-md);
+      padding: 20px 26px; display: flex; gap: 16px; align-items: flex-start;
+      margin-bottom: 36px; border-left: 5px solid var(--naranja); box-shadow: var(--shadow-sm);
+    }
+    .instructions-icon {
+      width: 38px; height: 38px; flex-shrink: 0;
+      background: var(--naranja); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .instructions-icon svg { width: 20px; height: 20px; fill: white; }
+    .instructions-text strong {
+      display: block; font-size: 14px; font-weight: 800; color: var(--text-dark); margin-bottom: 4px;
+    }
+    .instructions-text p { font-size: 13px; color: var(--gris-text); line-height: 1.55; }
+
+    .section-label {
+      font-size: 12px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--gris-text); margin-bottom: 18px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--gris-line); }
+
+    /* ══════════════════════════════════════════
+       GRID DATOS CURIOSOS
+    ══════════════════════════════════════════ */
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+      gap: 18px; margin-bottom: 60px;
+    }
+    .tip-card {
+      background: var(--gris-card); border-radius: var(--radius-md);
+      padding: 24px 20px; box-shadow: var(--shadow-sm);
+      border: 1.5px solid var(--gris-line); cursor: pointer;
+      transition: transform var(--t), box-shadow var(--t), border-color var(--t);
+      position: relative; overflow: hidden;
+      opacity: 0; transform: translateY(20px);
+      animation: cardIn 0.5s ease forwards;
+    }
+    .tip-card:hover { transform: translateY(-4px) scale(1.01); box-shadow: var(--shadow-md); border-color: var(--azul-light); }
+    .tip-card.revealed { border-color: var(--azul); background: linear-gradient(135deg, white 80%, #f0f7ff 100%); }
+    .tip-card.revealed::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--azul), var(--naranja));
+    }
+    @keyframes cardIn { to { opacity: 1; transform: translateY(0); } }
+    .tip-number {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 32px; height: 32px; background: var(--azul-light); border-radius: 8px;
+      font-size: 13px; font-weight: 800; color: var(--azul); margin-bottom: 12px;
+    }
+    .tip-card.revealed .tip-number { background: var(--azul); color: white; }
+    .tip-emoji { font-size: 26px; display: block; margin-bottom: 10px; line-height: 1; }
+    .tip-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gris-text); margin-bottom: 5px;
+    }
+    .tip-card.revealed .tip-label { color: var(--naranja); }
+    .tip-content { font-size: 14px; font-weight: 700; color: var(--text-dark); line-height: 1.35; margin-bottom: 8px; }
+    .tip-detail { font-size: 12px; font-weight: 400; color: var(--gris-text); line-height: 1.6; display: none; }
+    .tip-card.revealed .tip-detail { display: block; }
+    .tip-toggle {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--azul); margin-top: 10px;
+    }
+    .tip-toggle svg { width: 13px; height: 13px; fill: var(--azul); transition: transform var(--t); }
+    .tip-card.revealed .tip-toggle svg { transform: rotate(180deg); }
+
+    /* ══════════════════════════════════════════
+       LANZADOR DE ACTIVIDAD
+    ══════════════════════════════════════════ */
+    .activity-launch {
+      background: white; border-radius: var(--radius-lg);
+      padding: 52px 36px; text-align: center;
+      box-shadow: var(--shadow-md); border: 1px solid var(--gris-line);
+      position: relative; overflow: hidden;
+    }
+    .activity-launch::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+      background: linear-gradient(90deg, var(--azul), var(--naranja));
+    }
+    .launch-icon { font-size: 50px; display: block; margin-bottom: 14px; }
+    .launch-title { font-size: 26px; font-weight: 900; color: var(--text-dark); margin-bottom: 10px; }
+    .launch-title span { color: var(--azul); }
+    .launch-sub {
+      font-size: 14px; color: var(--gris-text);
+      max-width: 460px; margin: 0 auto 34px; line-height: 1.65;
+    }
+
+    /* Sectores preview */
+    .sectors-preview {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+      margin-bottom: 32px;
+    }
+    .sector-chip {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 8px 16px; border-radius: 50px;
+      font-size: 12px; font-weight: 700; color: white;
+    }
+
+    .btn-launch {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 17px 42px;
+      background: linear-gradient(135deg, var(--azul), #005bb5);
+      color: white; border: none; border-radius: 50px;
+      font-family: var(--font); font-size: 15px; font-weight: 800; letter-spacing: .5px;
+      cursor: pointer;
+      box-shadow: 0 8px 28px rgba(0,72,142,.35);
+      transition: transform var(--t), box-shadow var(--t);
+      animation: launchPulse 2.8s ease-in-out infinite;
+    }
+    .btn-launch:hover { transform: scale(1.05); box-shadow: 0 12px 36px rgba(0,72,142,.5); animation: none; }
+    .btn-launch svg { width: 22px; height: 22px; fill: white; }
+    @keyframes launchPulse {
+      0%,100% { box-shadow: 0 8px 28px rgba(0,72,142,.35); }
+      50%      { box-shadow: 0 8px 44px rgba(0,72,142,.6), 0 0 0 10px rgba(0,72,142,.07); }
+    }
+
+    /* ══════════════════════════════════════════
+       MODAL
+    ══════════════════════════════════════════ */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(3,15,35,.8); backdrop-filter: blur(6px);
+      display: flex; align-items: center; justify-content: center; padding: 20px;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    .modal-overlay.visible { opacity: 1; pointer-events: all; }
+    .modal-box {
+      background: white; border-radius: var(--radius-lg);
+      width: 100%; max-width: 700px; max-height: 90vh;
+      overflow-y: auto; box-shadow: var(--shadow-lg);
+      transform: translateY(30px) scale(.97);
+      transition: transform 0.45s cubic-bezier(.34,1.56,.64,1);
+      position: relative;
+    }
+    .modal-overlay.visible .modal-box { transform: translateY(0) scale(1); }
+
+    .modal-phase { display: none; }
+    .modal-phase.active { display: block; }
+
+    /* Fase sorting */
+    .sorting-phase { padding: 56px 36px; text-align: center; }
+    .sorting-spinner {
+      width: 88px; height: 88px;
+      border: 5px solid var(--gris-line); border-top-color: var(--azul);
+      border-radius: 50%; margin: 0 auto 28px;
+      animation: spin 0.65s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .sorting-title { font-size: 22px; font-weight: 900; color: var(--text-dark); margin-bottom: 10px; }
+    .sorting-sub { font-size: 13px; color: var(--gris-text); margin-bottom: 18px; }
+    .names-ticker {
+      font-size: 15px; font-weight: 700; color: var(--azul);
+      min-height: 24px;
+      animation: tickFade .12s ease-in-out infinite alternate;
+    }
+    @keyframes tickFade { from { opacity: .25; } to { opacity: 1; } }
+
+    /* Fase resultados */
+    .results-phase { padding: 34px 30px 38px; }
+    .results-header { text-align: center; margin-bottom: 26px; }
+    .results-trophy { font-size: 40px; display: block; margin-bottom: 8px; }
+    .results-title { font-size: 24px; font-weight: 900; color: var(--text-dark); }
+    .results-title span { color: var(--naranja); }
+    .results-sub { font-size: 13px; color: var(--gris-text); margin-top: 6px; line-height: 1.5; }
+
+    /* Tarea */
+    .task-band {
+      background: var(--gris-bg); border-radius: var(--radius-sm);
+      border-left: 4px solid var(--naranja); padding: 14px 18px; margin-bottom: 22px;
+    }
+    .task-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--naranja); margin-bottom: 6px;
+    }
+    .task-text { font-size: 13px; color: var(--text-body); line-height: 1.6; font-weight: 500; }
+
+    /* Grid grupos */
+    .groups-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 14px; margin-bottom: 24px;
+    }
+    .group-card {
+      border-radius: var(--radius-md); padding: 20px 18px;
+      border: 2px solid; position: relative; overflow: hidden;
+    }
+    .group-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+
+    /* colores por sector */
+    .group-card[data-s="empaques"]   { border-color: rgba(0,119,182,.25);  background: linear-gradient(135deg,#f0f8ff,#dbeafe); }
+    .group-card[data-s="educacion"]  { border-color: rgba(230,57,70,.25);  background: linear-gradient(135deg,#fff5f5,#fee2e2); }
+    .group-card[data-s="tecnologia"] { border-color: rgba(42,157,143,.25); background: linear-gradient(135deg,#f0fdf9,#ccfbf1); }
+    .group-card[data-s="papel"]      { border-color: rgba(196,154,26,.3);  background: linear-gradient(135deg,#fffef0,#fef9c3); }
+
+    .group-card[data-s="empaques"]::before   { background: var(--c-empaques); }
+    .group-card[data-s="educacion"]::before  { background: var(--c-educacion); }
+    .group-card[data-s="tecnologia"]::before { background: var(--c-tecnologia); }
+    .group-card[data-s="papel"]::before      { background: var(--c-papel); }
+
+    .group-head { display: flex; align-items: center; gap: 11px; margin-bottom: 14px; }
+    .group-emoji {
+      width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 20px;
+    }
+    .group-card[data-s="empaques"]   .group-emoji { background: rgba(0,119,182,.1); }
+    .group-card[data-s="educacion"]  .group-emoji { background: rgba(230,57,70,.1); }
+    .group-card[data-s="tecnologia"] .group-emoji { background: rgba(42,157,143,.1); }
+    .group-card[data-s="papel"]      .group-emoji { background: rgba(196,154,26,.1); }
+
+    .group-nombre { font-size: 14px; font-weight: 800; color: var(--text-dark); line-height: 1.2; }
+    .group-badge {
+      font-size: 9px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: white;
+      padding: 3px 8px; border-radius: 20px; display: inline-block; margin-top: 3px;
+    }
+    .group-card[data-s="empaques"]   .group-badge { background: var(--c-empaques); }
+    .group-card[data-s="educacion"]  .group-badge { background: var(--c-educacion); }
+    .group-card[data-s="tecnologia"] .group-badge { background: var(--c-tecnologia); }
+    .group-card[data-s="papel"]      .group-badge { background: var(--c-papel); }
+
+    .members-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .member-row { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--text-body); }
+    .member-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .group-card[data-s="empaques"]   .member-dot { background: var(--c-empaques); }
+    .group-card[data-s="educacion"]  .member-dot { background: var(--c-educacion); }
+    .group-card[data-s="tecnologia"] .member-dot { background: var(--c-tecnologia); }
+    .group-card[data-s="papel"]      .member-dot { background: var(--c-papel); }
+
+    /* Descarga única */
+    .downloads-section { margin-bottom: 20px; text-align: center; }
+    .downloads-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gris-text); margin-bottom: 14px;
+    }
+    .btn-dl-unico {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 32px; border-radius: 50px;
+      font-family: var(--font); font-size: 14px; font-weight: 800;
+      letter-spacing: .3px; text-decoration: none;
+      color: white;
+      background: linear-gradient(135deg, var(--naranja), #e85a00);
+      box-shadow: 0 6px 22px rgba(255,107,0,.38);
+      transition: transform var(--t), box-shadow var(--t);
+      animation: dlPulse 2.5s ease-in-out infinite;
+    }
+    .btn-dl-unico:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 10px 30px rgba(255,107,0,.5);
+      animation: none;
+    }
+    .btn-dl-unico svg { width: 18px; height: 18px; fill: white; }
+    @keyframes dlPulse {
+      0%,100% { box-shadow: 0 6px 22px rgba(255,107,0,.38); }
+      50%      { box-shadow: 0 6px 32px rgba(255,107,0,.62), 0 0 0 8px rgba(255,107,0,.08); }
+    }
+
+    .btn-cerrar {
+      display: block; width: 100%; padding: 13px;
+      background: var(--gris-bg); border: 1.5px solid var(--gris-line);
+      border-radius: var(--radius-sm); font-family: var(--font);
+      font-size: 13px; font-weight: 700; color: var(--gris-text);
+      cursor: pointer; transition: background var(--t), color var(--t);
+    }
+    .btn-cerrar:hover { background: var(--gris-line); color: var(--text-dark); }
+
+    /* ══════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════ */
+    .page-footer {
+      text-align: center; padding: 22px;
+      font-size: 12px; color: var(--gris-text); font-weight: 500;
+      border-top: 1px solid var(--gris-line);
+    }
+
+    /* Campo de semilla */
+    .seed-wrap { margin-top: 0; }
+    .seed-label {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gris-text); margin-bottom: 10px;
+    }
+    .seed-label svg { width: 13px; height: 13px; fill: var(--azul); }
+    .seed-input-row {
+      display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+      align-items: center; margin-bottom: 6px;
+    }
+    .seed-input {
+      padding: 13px 18px;
+      border: 2px solid var(--gris-line);
+      border-radius: 50px;
+      font-family: var(--font); font-size: 14px; font-weight: 600;
+      color: var(--text-dark);
+      background: var(--gris-bg);
+      width: 240px; max-width: 100%;
+      outline: none;
+      text-align: center;
+      letter-spacing: 1px;
+      transition: border-color var(--t), box-shadow var(--t), background var(--t);
+    }
+    .seed-input:focus {
+      border-color: var(--azul);
+      background: white;
+      box-shadow: 0 0 0 4px rgba(0,72,142,.1);
+    }
+    .seed-input::placeholder { color: #b0bed0; font-weight: 400; letter-spacing: 0; }
+    .seed-hint {
+      font-size: 12px; font-weight: 600; min-height: 18px;
+      text-align: center; color: var(--gris-text);
+    }
+
+    /* ══════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════ */
+    @media (max-width: 600px) {
+      .tips-grid { grid-template-columns: 1fr; }
+      .groups-grid { grid-template-columns: 1fr; }
+      .activity-launch { padding: 36px 20px; }
+      .results-phase { padding: 24px 18px 28px; }
+      .sorting-phase { padding: 40px 22px; }
+      .page-main { padding: 28px 16px 60px; }
+      .launch-title { font-size: 20px; }
+      .seed-input-row { flex-direction: column; align-items: stretch; }
+      .seed-input { width: 100%; }
+      .btn-launch { width: 100%; justify-content: center; }
+    }
+    @media (max-width: 420px) { .btn-back span { display: none; } }
+
+    /* ══════════════════════════════════════════
+       SECCIÓN VIDEO
+    ══════════════════════════════════════════ */
+    .video-section-wrap {
+      background: white;
+      border-top: 1px solid var(--gris-line);
+      padding: 48px 24px 64px;
+    }
+    .video-section-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .video-waiting {
+      text-align: center;
+      padding: 44px 24px;
+      background: var(--gris-bg);
+      border-radius: var(--radius-lg);
+      border: 2px dashed var(--gris-line);
+    }
+    .video-waiting-icon {
+      font-size: 44px; margin-bottom: 14px;
+      animation: waitBob 2s ease-in-out infinite;
+    }
+    @keyframes waitBob {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-6px); }
+    }
+    .video-waiting-title {
+      font-size: 20px; font-weight: 800;
+      color: var(--text-dark); margin-bottom: 8px;
+    }
+    .video-waiting-msg {
+      font-size: 14px; color: var(--gris-text);
+      font-weight: 500; max-width: 360px;
+      margin: 0 auto 22px; line-height: 1.6;
+    }
+    .video-waiting-dots {
+      display: flex; justify-content: center; gap: 7px;
+    }
+    .video-waiting-dots span {
+      width: 9px; height: 9px; border-radius: 50%;
+      background: var(--azul); opacity: .3;
+      animation: dotPulse 1.4s ease-in-out infinite;
+    }
+    .video-waiting-dots span:nth-child(2) { animation-delay: .2s; }
+    .video-waiting-dots span:nth-child(3) { animation-delay: .4s; }
+    @keyframes dotPulse {
+      0%,80%,100% { opacity: .2; transform: scale(.85); }
+      40%          { opacity: 1;  transform: scale(1.1); }
+    }
+    .btn-ver-video {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 24px;
+      padding: 12px 28px;
+      background: linear-gradient(135deg, var(--azul), #005bb5);
+      color: white; border: none; border-radius: 50px;
+      font-family: var(--font); font-size: 13px; font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(0,72,142,.3);
+      transition: transform var(--t), box-shadow var(--t);
+    }
+    .btn-ver-video:hover { transform: scale(1.05); box-shadow: 0 8px 26px rgba(0,72,142,.45); }
+    .btn-ver-video svg { width: 18px; height: 18px; fill: white; }
+    .video-wrapper {
+      position: relative; width: 100%;
+      padding-bottom: 56.25%;
+      border-radius: var(--radius-md);
+      overflow: hidden; box-shadow: var(--shadow-md);
+    }
+    .video-wrapper iframe {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; border: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     HEADER
+══════════════════════════════════════ -->
+<header class="page-header">
+  <div class="header-inner">
+    <nav class="header-nav">
+      <a href="index.html" class="header-logo">
+        <div class="header-logo-mark">
+          <svg viewBox="0 0 52 52" fill="none">
+            <path d="M10 26C10 17.163 17.163 10 26 10C31.37 10 36.09 12.66 39.04 16.72L34.2 19.86C32.34 17.38 29.36 15.8 26 15.8C20.37 15.8 15.8 20.37 15.8 26C15.8 31.63 20.37 36.2 26 36.2C29.36 36.2 32.34 34.62 34.2 32.14L39.04 35.28C36.09 39.34 31.37 42 26 42C17.163 42 10 34.837 10 26Z" fill="white"/>
+            <path d="M30 22H42V26H30V22Z" fill="#FF6B00"/>
+          </svg>
+        </div>
+        <span>CARVAJAL</span>
+      </a>
+      <a href="index.html" class="btn-back">
+        <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+        <span>Volver</span>
+      </a>
+    </nav>
+
+    <p class="header-eyebrow">Parada 1 · Historia Empresarial</p>
+    <h1 class="header-title">Datos curiosos &<br/><em>Actividad Grupal</em></h1>
+    <p class="header-sub">
+      Explora los datos históricos de Carvajal S.A. y luego inicia la actividad
+      para descubrir tu sector y tu equipo de trabajo.
+    </p>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="progressFill"></div>
+    </div>
+    <p class="progress-label">
+      <span id="progressCount">0</span> / <span id="progressTotal">0</span> datos revelados
+    </p>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════
+     MAIN
+══════════════════════════════════════ -->
+<main class="page-main">
+
+  <!-- Instrucciones -->
+  <div class="instructions-band">
+    <div class="instructions-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+    </div>
+    <div class="instructions-text">
+      <strong>¿Cómo funciona esta parada?</strong>
+      <p>
+        <strong>Paso 1:</strong> Explora los datos curiosos tocando cada tarjeta para revelarlos.
+        <strong>Paso 2:</strong> Escribe la <strong>semilla</strong> que te indiquen (ej: <em>carvajal</em>) y
+        presiona <em>"Empezar Actividad"</em> — todos los que usen la misma semilla verán exactamente los mismos grupos.
+      </p>
+    </div>
+  </div>
+
+  <!-- SECCIÓN 1: Datos curiosos -->
+  <p class="section-label">Datos Históricos Carvajal</p>
+  <div class="tips-grid" id="tipsGrid"><!-- JS --></div>
+
+  <!-- SECCIÓN 2: Lanzar actividad -->
+  <p class="section-label">Actividad Grupal por Sectores</p>
+  <div class="activity-launch">
+    <span class="launch-icon">🎯</span>
+    <h2 class="launch-title">¿Listos para el <span>desafío</span>?</h2>
+    <p class="launch-sub">
+      El sistema sorteará a todos los participantes y los dividirá de forma proporcional
+      en cuatro sectores de Carvajal. Cada equipo recibirá su tarea y material de estudio.
+    </p>
+
+    <!-- Chips de los 4 sectores -->
+    <div class="sectors-preview" id="sectorsPreview"><!-- JS --></div>
+
+    <!-- Campo de semilla -->
+    <div class="seed-wrap">
+      <label class="seed-label" for="inputSemilla">
+        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+        Semilla
+      </label>
+      <div class="seed-input-row">
+        <input type="text" id="inputSemilla" class="seed-input"
+               placeholder="Escribe la semilla (ej: carvajal)"
+               autocomplete="off" spellcheck="false" />
+        <button class="btn-launch" id="btnLanzar">
+          <svg viewBox="0 0 24 24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
+          Empezar
+        </button>
+      </div>
+      <p class="seed-hint" id="seedHint"></p>
+    </div>
+  </div>
+
+</main>
+
+<footer class="page-footer">
+  <p>© 2025 Carvajal S.A. · Actividad académica Historia Empresarial</p>
+</footer>
+
+<!-- ══════════════════════════════════════
+     SECCIÓN VIDEO YOUTUBE
+══════════════════════════════════════ -->
+<section class="video-section-wrap">
+  <div class="video-section-inner">
+
+    <!-- Estado: esperando instrucción -->
+    <div class="video-waiting" id="videoWaiting">
+      <div class="video-waiting-icon">⏳</div>
+      <h3 class="video-waiting-title">Video Institucional</h3>
+      <p class="video-waiting-msg">Espera a que te indiquen para reproducir el video.</p>
+      <div class="video-waiting-dots">
+        <span></span><span></span><span></span>
+      </div>
+      <button id="btnVerVideo" class="btn-ver-video">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Ya me indicaron, ver video
+      </button>
+    </div>
+
+    <!-- Reproductor (oculto hasta activar) -->
+    <div class="video-player-wrap" id="videoPlayerWrap" style="display:none;">
+      <p class="section-label" style="margin-bottom:16px;">📺 Video Institucional</p>
+      <div class="video-wrapper">
+        <iframe
+          id="videoIframe"
+          src=""
+          title="Video Carvajal S.A."
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     MODAL DE SORTEO
+══════════════════════════════════════ -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box">
+
+    <!-- Fase A: Animación -->
+    <div class="modal-phase active sorting-phase" id="phaseSorting">
+      <div class="sorting-spinner"></div>
+      <p class="sorting-title">Asignando sectores...</p>
+      <p class="sorting-sub">Mezclando participantes aleatoriamente</p>
+      <p class="names-ticker" id="namesTicker">···</p>
+    </div>
+
+    <!-- Fase B: Resultados -->
+    <div class="modal-phase results-phase" id="phaseResults">
+      <div class="results-header">
+        <span class="results-trophy">🏆</span>
+        <h2 class="results-title">¡Grupos <span>Asignados!</span></h2>
+        <p class="results-sub">
+          Busca tu nombre, conoce a tus compañeros y descarga el material de tu sector.
+        </p>
+      </div>
+
+      <div class="task-band">
+        <p class="task-label">📋 Tarea para todos los grupos</p>
+        <p class="task-text" id="tareaTexto"></p>
+      </div>
+
+      <div class="groups-grid" id="groupsGrid"><!-- JS --></div>
+
+      <div class="downloads-section">
+        <p class="downloads-label">📁 Material de estudio — Historia Empresarial</p>
+        <a id="btnDescarga" class="btn-dl-unico"
+           href="https://drive.google.com/drive/folders/1if2NWkbJ3wYDaptyV5B90xhpa-WjJoYD?usp=sharing"
+           target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+          Ver materiales en Google Drive
+        </a>
+      </div>
+
+      <button class="btn-cerrar" id="btnCerrar">Cerrar</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════ -->
+<script>
+'use strict';
+
+/* ════════════════════════════════════════════════════
+   ╔══════════════════════════════════════════════╗
+   ║  ZONA DE CONFIGURACIÓN — EDITAR ANTES        ║
+   ║  DE CADA CLASE                               ║
+   ╚══════════════════════════════════════════════╝
+════════════════════════════════════════════════════ */
+
+
+const PARTICIPANTES = [  
+  'Viviana Ocampo',
+  'Mariana Contreras',
+  'Manuela Alvarez',
+  'Silvana Casanova',
+  'Leidy Henao',
+  'Laura Gil',
+  'Andra Marulanda',
+  'Leidy Fernández',
+  'José David Calle',
+  'Camila Arcila',
+  'Luna Rodríguez',
+  'Juliana Villamil',
+  'Alejandro Bedoya',
+  'Federico Caicedo',
+  'Angie Rodriguez',
+  'Juan Gil Antía',
+  'Alisson Osorio',
+  'Brandon Bernal'
+  /* ← Puedes agregar hasta ~40 nombres aquí */
+];
+
+/**
+ * 2. TAREA DE LA ACTIVIDAD
+ * Este texto aparece en el modal para todos los grupos.
+ * Cámbialo según la dinámica del día.
+ */
+const TAREA =
+  'Con tu equipo, construye una LÍNEA DE TIEMPO visual del sector asignado: ' +
+  'identifica al menos 5 hitos clave desde la fundación de Carvajal hasta hoy. ' +
+  'Usa el material de estudio como fuente. Tendrán 20 minutos para exponer.';
+
+/**
+ * 3. LINK DEL MATERIAL (carpeta de Google Drive)
+ * Al hacer clic se abre en una nueva pestaña.
+ */
+const MATERIAL_PDF = 'https://drive.google.com/drive/folders/1if2NWkbJ3wYDaptyV5B90xhpa-WjJoYD?usp=sharing';
+
+/* ════════════════════════════════════════════════
+   DEFINICIÓN DE SECTORES (no editar)
+════════════════════════════════════════════════ */
+const SECTORES = [
+  { id: 'empaques',   nombre: 'Carvajal Empaques',    emoji: '📦', desc: 'Empaques para consumo masivo'         },
+  { id: 'educacion',  nombre: 'Carvajal Educación',   emoji: '📚', desc: 'Norma y portafolio educativo'         },
+  { id: 'tecnologia', nombre: 'Carvajal Tecnología',  emoji: '💻', desc: 'Soluciones digitales empresariales'   },
+  { id: 'papel',      nombre: 'Carvajal Pulpa y Papel',emoji: '🌿', desc: 'Producción sostenible Propal'         }
+];
+
+/* ════════════════════════════════════════════════
+   DATOS CURIOSOS
+════════════════════════════════════════════════ */
+const DATOS_CURIOSOS = [
+  { emoji:'📅', label:'Fundación',       titulo:'Fundada el 1° de enero de 1904',
+    detalle:'Manuel Carvajal Valencia y Jorge Zawadzky fundaron la empresa en Cali con una sola prensa tipográfica, eligiendo el primer día del siglo XX como símbolo de un nuevo comienzo.' },
+  { emoji:'🌎', label:'Expansión',       titulo:'Presente en más de 14 países',
+    detalle:'Carvajal opera en Colombia, México, Ecuador, Perú, Venezuela, Chile, Argentina, Costa Rica, Guatemala, Honduras, El Salvador, Panamá, República Dominicana y EE.UU.' },
+  { emoji:'🏭', label:'Primera planta',  titulo:'Planta industrial desde 1910',
+    detalle:'Apenas seis años después de su fundación, Carvajal ya contaba con su primera planta industrial moderna en Cali, marcando su salto de imprenta artesanal a empresa manufacturera.' },
+  { emoji:'📓', label:'Norma',           titulo:'Norma: el cuaderno de Colombia',
+    detalle:'La marca Norma se convirtió en el cuaderno más usado en colegios colombianos por décadas. Millones de estudiantes latinoamericanos crecieron con sus productos entre las manos.' },
+  { emoji:'🤝', label:'RSE',             titulo:'Fundación Carvajal desde 1961',
+    detalle:'Creada en 1961, la Fundación Carvajal ha transformado el oriente de Cali con programas de educación, microempresa y vivienda. Es un modelo de RSE referente en América Latina.' },
+  { emoji:'🌱', label:'Sostenibilidad',  titulo:'Propal: papel de caña de azúcar',
+    detalle:'Carvajal Pulpa y Papel (Propal) produce papel a partir de caña de azúcar, un proceso más sostenible que el de madera. Es una de las pocas plantas de este tipo en el mundo.' },
+  { emoji:'💡', label:'Innovación',      titulo:'Transformación digital del grupo',
+    detalle:'En el siglo XXI, Carvajal migró sus soluciones de directorios, empaques y educación a plataformas digitales, demostrando una capacidad de reinvención constante a lo largo de 120 años.' },
+  { emoji:'🏆', label:'Empresa familiar', titulo:'Modelo de empresa familiar',
+    detalle:'Carvajal ha sido estudiado en escuelas de negocios como referente de empresa familiar exitosa, reconocido por su gobierno corporativo, longevidad y compromiso social.' },
+  { emoji:'🔵', label:'Identidad visual', titulo:'El azul corporativo #00488e',
+    detalle:'El azul de Carvajal lleva décadas representando confianza y solidez. Es uno de los colores corporativos más reconocidos en Colombia y está presente en todos sus productos.' }
+];
+
+/* ════════════════════════════════════════════════
+   GENERADOR DE NÚMEROS PSEUDOALEATORIOS CON SEMILLA
+   Basado en hash de string → función sin repetición.
+   La MISMA semilla siempre produce EL MISMO resultado.
+════════════════════════════════════════════════ */
+function crearRandom(semilla) {
+  // Convertir semilla a número hash
+  let h = 0;
+  for (let i = 0; i < semilla.length; i++) {
+    h = Math.imul(31, h) + semilla.charCodeAt(i) | 0;
+  }
+  // Devuelve función que genera float [0,1) reproducible
+  return function() {
+    h = Math.imul(h ^ (h >>> 16), 0x45d9f3b) | 0;
+    h = Math.imul(h ^ (h >>> 16), 0x45d9f3b) | 0;
+    h ^= h >>> 16;
+    return (h >>> 0) / 0xFFFFFFFF;
+  };
+}
+
+/* ════════════════════════════════════════════════
+   ALGORITMO DE SORTEO PROPORCIONAL CON SEMILLA
+   Fisher-Yates con rng semillado.
+   Diferencia máxima entre grupos: 1 persona.
+════════════════════════════════════════════════ */
+function sortearGrupos(lista, semilla) {
+  const rng = crearRandom(semilla.trim().toLowerCase());
+
+  // Fisher-Yates con rng semillado
+  const arr = [...lista];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+
+  const n      = arr.length;
+  const base   = Math.floor(n / 4);
+  const extras = n % 4;
+
+  const grupos = [];
+  let cursor = 0;
+  for (let g = 0; g < 4; g++) {
+    const tam = base + (g < extras ? 1 : 0);
+    grupos.push({
+      sector:   SECTORES[g],
+      miembros: arr.slice(cursor, cursor + tam)
+    });
+    cursor += tam;
+  }
+  return grupos;
+}
+
+/* ════════════════════════════════════════════════
+   RENDER: DATOS CURIOSOS
+════════════════════════════════════════════════ */
+let reveladas = 0;
+
+function actualizarProgreso() {
+  const total = DATOS_CURIOSOS.length;
+  document.getElementById('progressFill').style.width = (reveladas / total * 100) + '%';
+  document.getElementById('progressCount').textContent = reveladas;
+  document.getElementById('progressTotal').textContent = total;
+}
+
+function crearTarjeta(dato, idx) {
+  const card = document.createElement('div');
+  card.className = 'tip-card';
+  card.style.animationDelay = `${idx * 0.07}s`;
+  card.innerHTML = `
+    <div class="tip-number">${idx + 1}</div>
+    <span class="tip-emoji">${dato.emoji}</span>
+    <p class="tip-label">${dato.label}</p>
+    <p class="tip-content">${dato.titulo}</p>
+    <p class="tip-detail">${dato.detalle}</p>
+    <span class="tip-toggle">Ver dato
+      <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+    </span>`;
+  card.addEventListener('click', () => {
+    const era = card.classList.contains('revealed');
+    card.classList.toggle('revealed');
+    card.querySelector('.tip-toggle').firstChild.textContent = era ? 'Ver dato ' : 'Ocultar ';
+    reveladas += era ? -1 : 1;
+    actualizarProgreso();
+  });
+  return card;
+}
+
+/* ════════════════════════════════════════════════
+   RENDER: SECTORES PREVIEW CHIPS
+════════════════════════════════════════════════ */
+function renderSectorsPreview() {
+  const colors = { empaques:'#0077b6', educacion:'#e63946', tecnologia:'#2a9d8f', papel:'#c49a1a' };
+  const wrap = document.getElementById('sectorsPreview');
+  SECTORES.forEach(s => {
+    const chip = document.createElement('span');
+    chip.className = 'sector-chip';
+    chip.style.background = colors[s.id];
+    chip.innerHTML = `${s.emoji} ${s.nombre}`;
+    wrap.appendChild(chip);
+  });
+}
+
+/* ════════════════════════════════════════════════
+   RENDER: RESULTADO DEL SORTEO
+════════════════════════════════════════════════ */
+function renderResultados(grupos, semilla) {
+  // Tarea
+  document.getElementById('tareaTexto').textContent = TAREA;
+
+  // Mostrar semilla usada en el subtítulo
+  document.querySelector('#phaseResults .results-sub').innerHTML =
+    `Semilla usada: <strong style="color:var(--azul)">"${semilla}"</strong> —
+     todos con la misma semilla verán estos grupos.
+     Busca tu nombre y descarga el material.`;
+
+  // Tarjetas de grupos
+  const grid = document.getElementById('groupsGrid');
+  grid.innerHTML = '';
+  grupos.forEach(g => {
+    const s = g.sector;
+    const miembrosHTML = g.miembros
+      .map(m => `<li class="member-row"><span class="member-dot"></span>${m}</li>`)
+      .join('');
+    const card = document.createElement('div');
+    card.className = 'group-card';
+    card.setAttribute('data-s', s.id);
+    card.innerHTML = `
+      <div class="group-head">
+        <div class="group-emoji">${s.emoji}</div>
+        <div>
+          <p class="group-nombre">${s.nombre}</p>
+          <span class="group-badge">${g.miembros.length} integrantes</span>
+        </div>
+      </div>
+      <ul class="members-list">${miembrosHTML}</ul>`;
+    grid.appendChild(card);
+  });
+
+  // Actualizar href del botón único de descarga
+  document.getElementById('btnDescarga').href = MATERIAL_PDF;
+}
+
+/* ════════════════════════════════════════════════
+   FLUJO DE SORTEO CON ANIMACIÓN
+════════════════════════════════════════════════ */
+function iniciarSorteo() {
+  const inputSemilla = document.getElementById('inputSemilla');
+  const hint         = document.getElementById('seedHint');
+  const semilla      = inputSemilla.value.trim();
+
+  // Validar que haya semilla
+  if (!semilla) {
+    hint.textContent = '⚠️ Escribe la semilla antes de continuar.';
+    hint.style.color = '#d93025';
+    inputSemilla.focus();
+    return;
+  }
+  hint.textContent = '';
+
+  // Abrir modal → fase animación
+  document.getElementById('phaseSorting').classList.add('active');
+  document.getElementById('phaseResults').classList.remove('active');
+  document.getElementById('modalOverlay').classList.add('visible');
+
+  // Actualizar subtítulo de la fase de animación con la semilla
+  document.querySelector('.sorting-sub').textContent =
+    `Semilla: "${semilla}" — calculando grupos...`;
+
+  // Ticker visual de nombres (solo efecto, usa Math.random para variedad visual)
+  const ticker = document.getElementById('namesTicker');
+  let t = setInterval(() => {
+    ticker.textContent = PARTICIPANTES[Math.floor(Math.random() * PARTICIPANTES.length)];
+  }, 110);
+
+  // Después de 2.8s → calcular grupos con semilla y mostrar
+  setTimeout(() => {
+    clearInterval(t);
+    const grupos = sortearGrupos(PARTICIPANTES, semilla);
+    renderResultados(grupos, semilla);
+    document.getElementById('phaseSorting').classList.remove('active');
+    document.getElementById('phaseResults').classList.add('active');
+    document.querySelector('.modal-box').scrollTop = 0;
+  }, 2800);
+}
+
+/* ════════════════════════════════════════════════
+   INICIALIZACIÓN
+════════════════════════════════════════════════ */
+document.addEventListener('DOMContentLoaded', () => {
+
+  // Datos curiosos
+  const grid = document.getElementById('tipsGrid');
+  DATOS_CURIOSOS.forEach((d, i) => grid.appendChild(crearTarjeta(d, i)));
+  actualizarProgreso();
+
+  // Sector chips
+  renderSectorsPreview();
+
+  // Video: revelar reproductor al hacer clic
+  document.getElementById('btnVerVideo').addEventListener('click', () => {
+    document.getElementById('videoIframe').src =
+      `https://www.youtube.com/embed/${VIDEO_YOUTUBE_ID}?autoplay=1`;
+    document.getElementById('videoWaiting').style.display    = 'none';
+    document.getElementById('videoPlayerWrap').style.display = 'block';
+    document.getElementById('videoPlayerWrap').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  // Botón lanzar + Enter en el input
+  document.getElementById('btnLanzar').addEventListener('click', iniciarSorteo);
+  document.getElementById('inputSemilla').addEventListener('keydown', e => {
+    if (e.key === 'Enter') iniciarSorteo();
+  });
+  // Limpiar hint al escribir
+  document.getElementById('inputSemilla').addEventListener('input', () => {
+    document.getElementById('seedHint').textContent = '';
+  });
+
+  // Cerrar modal
+  document.getElementById('btnCerrar').addEventListener('click', () => {
+    document.getElementById('modalOverlay').classList.remove('visible');
+  });
+  document.getElementById('modalOverlay').addEventListener('click', function(e) {
+    if (e.target === this) this.classList.remove('visible');
+  });
+
+});
+</script>
+</body>
+</html>
