@@ -167,7 +167,7 @@ const baseDeDatos = [
     password:       'carvajal123',
     nombre:         'Santi',
     apellido:       'Colombina',
-    fotoPerfil:     'https://drive.google.com/thumbnail?id=1X1r6ba_CHHy4KXxfFGuXKHKnciFhdeJ-&sz=w200',
+    fotoPerfil:     'santi1.png',
     diasTrabajando: 3
   }
 ];
