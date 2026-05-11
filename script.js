@@ -16,7 +16,7 @@ const baseDeDatos = [
     nombre:         'Viviana',
     apellido:       'Ocampo Restrepo',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1hbbPHTBevKoC4wGo4BsVUIUYxk5LJUC6&sz=w200',
-    diasTrabajando: 1
+    diasTrabajando: 3
   },
   {
     usuario:        'mariana',
@@ -24,7 +24,7 @@ const baseDeDatos = [
     nombre:         'Mariana',
     apellido:       'Contreras Bedoya',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1ot5mj4HDi5Fj84TCZ8ciTOnZIUu4yYeP&sz=w200',
-    diasTrabajando: 1
+    diasTrabajando: 3
   },
   {
     usuario:        'manuela',
@@ -32,7 +32,7 @@ const baseDeDatos = [
     nombre:         'Manuela',
     apellido:       'Alvarez Arias',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1jQvYwqJTLiPXMvsyuAGQjom45NlqiAZq&sz=w200',
-    diasTrabajando: 1
+    diasTrabajando: 3
   },
   {
     usuario:        'silvana',
@@ -40,7 +40,7 @@ const baseDeDatos = [
     nombre:         'Silvana',
     apellido:       'Casanova Rangel',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1y2fIOeg9vUvpT5gjOxvFh3pvyg3BTQEL&sz=w200',
-    diasTrabajando: 1
+    diasTrabajando: 3
   },
   {
     usuario:        'leidyh',
@@ -48,7 +48,7 @@ const baseDeDatos = [
     nombre:         'Leidy',
     apellido:       'Henao',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1ZE3X-ZsPUz4fca2DszQVwfWTGxJkq6xi&sz=w200',
-    diasTrabajando: 1
+    diasTrabajando: 3
   },
   {
     usuario:        'laura',
@@ -56,7 +56,7 @@ const baseDeDatos = [
     nombre:         'Laura',
     apellido:       'Dayana Gil Marin',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1Ox4ZSIRO1mhxcGxFlvT0Q3Jwnegfeqoa&sz=w200',
-    diasTrabajando: 1
+    diasTrabajando: 3
   },
   {
     usuario:        'andra',
@@ -64,7 +64,7 @@ const baseDeDatos = [
     nombre:         'Andra',
     apellido:       'Marulanda Ballesteros',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1IjZQ9p-EKy8_SNIqny1FHi5WEH_ljByV&sz=w200',
-    diasTrabajando: 1
+    diasTrabajando: 3
   },
   {
     usuario:        'leidyf',
@@ -72,7 +72,7 @@ const baseDeDatos = [
     nombre:         'Leidy',
     apellido:       'Fernández Lopez',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1JTebihBGWbM-0RLTBzunS_ItaCuQQ2Ud&sz=w200',
-    diasTrabajando: 1
+    diasTrabajando: 3
   },
   {
     usuario:        'jose',
@@ -80,7 +80,7 @@ const baseDeDatos = [
     nombre:         'José',
     apellido:       'David Calle',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1w9XPRfB7fk_drxJXp_vq7jjkIiUJhieD&sz=w200',
-    diasTrabajando: 1
+    diasTrabajando: 3
   },
   {
     usuario:        'camila',
@@ -88,7 +88,7 @@ const baseDeDatos = [
     nombre:         'Camila',
     apellido:       'Arcila',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1ebeVu28R80TIvwHWa7l4w4kEblZMGSVe&sz=w200',
-    diasTrabajando: 1
+    diasTrabajando: 3
   },
   {
     usuario:        'luna',
@@ -96,7 +96,7 @@ const baseDeDatos = [
     nombre:         'Luna',
     apellido:       'Rodríguez Sánchez',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1TCgikN7mfhCBBg0_BW6TJVu3jj8pXNF7&sz=w200',
-    diasTrabajando: 1
+    diasTrabajando: 3
   },
   {
     usuario:        'juliana',
@@ -104,7 +104,7 @@ const baseDeDatos = [
     nombre:         'Juliana',
     apellido:       'Villamil Martinez',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1hAgm6wN00C2SSpNdmgVsCQY3guDg_CwI&sz=w200',
-    diasTrabajando: 1
+    diasTrabajando: 3
   },
   {
     usuario:        'alejandro',
@@ -112,7 +112,7 @@ const baseDeDatos = [
     nombre:         'Alejandro',
     apellido:       'Bedoya Espitia',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1Bd4ZfTTNHuLoDhjuu26L2CEGk5XZdcNj&sz=w200',
-    diasTrabajando: 1
+    diasTrabajando: 3
   },
   {
     usuario:        'federico',
@@ -120,7 +120,7 @@ const baseDeDatos = [
     nombre:         'Federico',
     apellido:       'Caicedo Rengifo',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1VbTpULDi_90SHSdJVbhU3-OZS1X_i4-V&sz=w200',
-    diasTrabajando: 1
+    diasTrabajando: 3
   },
   {
     usuario:        'angie',
@@ -128,7 +128,7 @@ const baseDeDatos = [
     nombre:         'Angie',
     apellido:       'Rodriguez',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1qNAWmCoSIGIMzgTMPVBYvMMucU7rE6XN&sz=w200',
-    diasTrabajando: 1
+    diasTrabajando: 3
   },
   {
     usuario:        'juan',
@@ -136,7 +136,7 @@ const baseDeDatos = [
     nombre:         'Juan',
     apellido:       'Gil Antía',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=13XtjNBdyAugftHgbgtTunVrQy8gmhhgT&sz=w200',
-    diasTrabajando: 1
+    diasTrabajando: 3
   },
   {
     usuario:        'alisson',
@@ -144,7 +144,7 @@ const baseDeDatos = [
     nombre:         'Alisson',
     apellido:       'Osorio',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1oCgUzbUrYeIgxDqS7vXASkmsEdN5z53o&sz=w200',
-    diasTrabajando: 1
+    diasTrabajando: 3
   },
   {
     usuario:        'brandon',
@@ -152,7 +152,23 @@ const baseDeDatos = [
     nombre:         'Brandon',
     apellido:       'Bernal',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1X1r6ba_CHHy4KXxfFGuXKHKnciFhdeJ-&sz=w200',
-    diasTrabajando: 1
+    diasTrabajando: 3
+  },
+   {
+   usuario:        'adriana',
+    password:       'carvajal123',
+    nombre:         'Adriana Raquel',
+    apellido:       'Ospina',
+    fotoPerfil:     'adriana.png',
+    diasTrabajando: 3
+  },
+   {
+     usuario:        'santiago',
+    password:       'carvajal123',
+    nombre:         'Santi',
+    apellido:       'Colombina',
+    fotoPerfil:     'https://drive.google.com/thumbnail?id=1X1r6ba_CHHy4KXxfFGuXKHKnciFhdeJ-&sz=w200',
+    diasTrabajando: 3
   }
 ];
 
