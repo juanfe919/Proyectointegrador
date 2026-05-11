@@ -16,7 +16,7 @@ const baseDeDatos = [
     nombre:         'Viviana',
     apellido:       'Ocampo Restrepo',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1hbbPHTBevKoC4wGo4BsVUIUYxk5LJUC6&sz=w200',
-    diasTrabajando: 2
+    diasTrabajando: 1
   },
   {
     usuario:        'mariana',
@@ -24,7 +24,7 @@ const baseDeDatos = [
     nombre:         'Mariana',
     apellido:       'Contreras Bedoya',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1ot5mj4HDi5Fj84TCZ8ciTOnZIUu4yYeP&sz=w200',
-    diasTrabajando: 2
+    diasTrabajando: 1
   },
   {
     usuario:        'manuela',
@@ -32,7 +32,7 @@ const baseDeDatos = [
     nombre:         'Manuela',
     apellido:       'Alvarez Arias',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1jQvYwqJTLiPXMvsyuAGQjom45NlqiAZq&sz=w200',
-    diasTrabajando: 2
+    diasTrabajando: 1
   },
   {
     usuario:        'silvana',
@@ -40,7 +40,7 @@ const baseDeDatos = [
     nombre:         'Silvana',
     apellido:       'Casanova Rangel',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1y2fIOeg9vUvpT5gjOxvFh3pvyg3BTQEL&sz=w200',
-    diasTrabajando: 2
+    diasTrabajando: 1
   },
   {
     usuario:        'leidyh',
@@ -48,7 +48,7 @@ const baseDeDatos = [
     nombre:         'Leidy',
     apellido:       'Henao',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1ZE3X-ZsPUz4fca2DszQVwfWTGxJkq6xi&sz=w200',
-    diasTrabajando: 2
+    diasTrabajando: 1
   },
   {
     usuario:        'laura',
@@ -56,7 +56,7 @@ const baseDeDatos = [
     nombre:         'Laura',
     apellido:       'Dayana Gil Marin',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1Ox4ZSIRO1mhxcGxFlvT0Q3Jwnegfeqoa&sz=w200',
-    diasTrabajando: 2
+    diasTrabajando: 1
   },
   {
     usuario:        'andra',
@@ -64,7 +64,7 @@ const baseDeDatos = [
     nombre:         'Andra',
     apellido:       'Marulanda Ballesteros',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1IjZQ9p-EKy8_SNIqny1FHi5WEH_ljByV&sz=w200',
-    diasTrabajando: 2
+    diasTrabajando: 1
   },
   {
     usuario:        'leidyf',
@@ -72,7 +72,7 @@ const baseDeDatos = [
     nombre:         'Leidy',
     apellido:       'Fernández Lopez',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1JTebihBGWbM-0RLTBzunS_ItaCuQQ2Ud&sz=w200',
-    diasTrabajando: 2
+    diasTrabajando: 1
   },
   {
     usuario:        'jose',
@@ -80,7 +80,7 @@ const baseDeDatos = [
     nombre:         'José',
     apellido:       'David Calle',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1w9XPRfB7fk_drxJXp_vq7jjkIiUJhieD&sz=w200',
-    diasTrabajando: 2
+    diasTrabajando: 1
   },
   {
     usuario:        'camila',
@@ -88,7 +88,7 @@ const baseDeDatos = [
     nombre:         'Camila',
     apellido:       'Arcila',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1ebeVu28R80TIvwHWa7l4w4kEblZMGSVe&sz=w200',
-    diasTrabajando: 2
+    diasTrabajando: 1
   },
   {
     usuario:        'luna',
@@ -96,7 +96,7 @@ const baseDeDatos = [
     nombre:         'Luna',
     apellido:       'Rodríguez Sánchez',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1TCgikN7mfhCBBg0_BW6TJVu3jj8pXNF7&sz=w200',
-    diasTrabajando: 2
+    diasTrabajando: 1
   },
   {
     usuario:        'juliana',
@@ -104,7 +104,7 @@ const baseDeDatos = [
     nombre:         'Juliana',
     apellido:       'Villamil Martinez',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1hAgm6wN00C2SSpNdmgVsCQY3guDg_CwI&sz=w200',
-    diasTrabajando: 2
+    diasTrabajando: 1
   },
   {
     usuario:        'alejandro',
@@ -112,7 +112,7 @@ const baseDeDatos = [
     nombre:         'Alejandro',
     apellido:       'Bedoya Espitia',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1Bd4ZfTTNHuLoDhjuu26L2CEGk5XZdcNj&sz=w200',
-    diasTrabajando: 2
+    diasTrabajando: 1
   },
   {
     usuario:        'federico',
@@ -120,7 +120,7 @@ const baseDeDatos = [
     nombre:         'Federico',
     apellido:       'Caicedo Rengifo',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1VbTpULDi_90SHSdJVbhU3-OZS1X_i4-V&sz=w200',
-    diasTrabajando: 2
+    diasTrabajando: 1
   },
   {
     usuario:        'angie',
@@ -128,7 +128,7 @@ const baseDeDatos = [
     nombre:         'Angie',
     apellido:       'Rodriguez',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1qNAWmCoSIGIMzgTMPVBYvMMucU7rE6XN&sz=w200',
-    diasTrabajando: 2
+    diasTrabajando: 1
   },
   {
     usuario:        'juan',
@@ -136,7 +136,7 @@ const baseDeDatos = [
     nombre:         'Juan',
     apellido:       'Gil Antía',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=13XtjNBdyAugftHgbgtTunVrQy8gmhhgT&sz=w200',
-    diasTrabajando: 2
+    diasTrabajando: 1
   },
   {
     usuario:        'alisson',
@@ -144,7 +144,7 @@ const baseDeDatos = [
     nombre:         'Alisson',
     apellido:       'Osorio',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1oCgUzbUrYeIgxDqS7vXASkmsEdN5z53o&sz=w200',
-    diasTrabajando: 2
+    diasTrabajando: 1
   },
   {
     usuario:        'brandon',
@@ -152,55 +152,7 @@ const baseDeDatos = [
     nombre:         'Brandon',
     apellido:       'Bernal',
     fotoPerfil:     'https://drive.google.com/thumbnail?id=1X1r6ba_CHHy4KXxfFGuXKHKnciFhdeJ-&sz=w200',
-    diasTrabajando: 2
-  },
-    {
-    usuario:        'ronaldo',
-    password:       'carvajal123',
-    nombre:         'Ronaldo',
-    apellido:       'Otalvaro',
-    fotoPerfil:     'ronalimagen.jpeg',
-    diasTrabajando: 2
-  },
-    {
-    usuario:        'newman',
-    password:       'carvajal123',
-    nombre:         'Newman David',
-    apellido:       'Fuenmayor',
-    fotoPerfil:     'none',
-    diasTrabajando: 2
-  },
-   {
-    usuario:        'diana',
-    password:       'carvajal123',
-    nombre:         'Diana Paola',
-    apellido:       'Ospina Botero',
-    fotoPerfil:     'diana.JPG',
-    diasTrabajando: 2
-  },
-     {
-    usuario:        'elizabeth',
-    password:       'carvajal123',
-    nombre:         'Elizabeth',
-    apellido:       'Agudelo Munoz',
-    fotoPerfil:     'none',
-    diasTrabajando: 2
-  },
-       {
-    usuario:        'arnold',
-    password:       'carvajal123',
-    nombre:         'Arnold Alberto',
-    apellido:       'Hernandez Serna',
-    fotoPerfil:     'Arnold.jpeg',
-    diasTrabajando: 2
-  },
-       {
-    usuario:        'jhon',
-    password:       'carvajal123',
-    nombre:         'Jhon Albert',
-    apellido:       'Morales Vargas',
-    fotoPerfil:     'none',
-    diasTrabajando: 2
+    diasTrabajando: 1
   }
 ];
 
@@ -230,24 +182,24 @@ const paradasRuta = [
   {
     numero:      3,
     materia:     'Ética',
-    descripcion: 'Próximamente habilitada. Fundamentos éticos en el mundo empresarial.',
-    habilitada:  false,
-    enlace:      null,
-    cta:         'Bloqueada',
+    descripcion: 'Valores, código de ética, dilemas, RSE, ODS y cultura organizacional.',
+    habilitada:  true,
+    enlace:      'estacion3.html',
+    cta:         'Iniciar parada',
     icono:       'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'
   }
 ];
- 
+
 /* ──────────────────────────────────────────────
    ESTADO DE LA APLICACIÓN
 ────────────────────────────────────────────── */
 let usuarioActivo = null;
 let typewriterTimer = null;
- 
+
 /* ──────────────────────────────────────────────
    UTILIDADES
 ────────────────────────────────────────────── */
- 
+
 /**
  * Convierte días en un texto legible
  * @param {number} dias
@@ -267,11 +219,11 @@ function formatearDias(dias) {
   }
   return `${dias} día${dias !== 1 ? 's' : ''}`;
 }
- 
+
 /* ──────────────────────────────────────────────
    FASE 1: LÓGICA DE LOGIN
 ────────────────────────────────────────────── */
- 
+
 /**
  * Busca un colaborador en la base de datos
  * @param {string} usuario
@@ -284,7 +236,7 @@ function autenticar(usuario, password) {
            col.password === password
   ) || null;
 }
- 
+
 /**
  * Muestra un mensaje de error en el login
  * @param {string} mensaje
@@ -293,14 +245,14 @@ function mostrarErrorLogin(mensaje) {
   const errorEl = document.getElementById('loginError');
   errorEl.textContent = mensaje;
   errorEl.style.opacity = '1';
- 
+
   // Animación de shake
   const card = document.querySelector('.login-card');
   card.style.animation = 'none';
   card.offsetHeight; // reflow
   card.style.animation = 'shake 0.4s ease';
 }
- 
+
 /**
  * Limpia el error del login
  */
@@ -308,28 +260,28 @@ function limpiarErrorLogin() {
   const errorEl = document.getElementById('loginError');
   errorEl.textContent = '';
 }
- 
+
 /**
  * Transición de Login → Perfil con fade-out
  * @param {Object} colaborador
  */
 function transicionAPeril(colaborador) {
   usuarioActivo = colaborador;
- 
+
   const loginScreen = document.getElementById('loginScreen');
   loginScreen.classList.add('fade-out');
- 
+
   setTimeout(() => {
     loginScreen.classList.remove('active', 'fade-out');
     loginScreen.style.display = 'none';
     mostrarPerfil(colaborador);
   }, 600);
 }
- 
+
 /* ──────────────────────────────────────────────
    FASE 2: PERFIL Y ANIMACIÓN DE BIENVENIDA
 ────────────────────────────────────────────── */
- 
+
 /**
  * Renderiza la pantalla de perfil
  * @param {Object} col - colaborador activo
@@ -338,42 +290,42 @@ function mostrarPerfil(col) {
   const profileScreen = document.getElementById('profileScreen');
   profileScreen.style.display = '';
   profileScreen.classList.add('active');
- 
+
   // Foto
   const foto = document.getElementById('profilePhoto');
   foto.src = col.fotoPerfil;
   foto.alt = `${col.nombre} ${col.apellido}`;
- 
+
   // Nombre
   document.getElementById('profileName').textContent = `${col.nombre} ${col.apellido}`;
- 
+
   // Días trabajando
   const diasTexto = formatearDias(col.diasTrabajando);
   document.getElementById('profileDays').textContent =
     `${col.diasTrabajando.toLocaleString('es-CO')} días en la familia Carvajal`;
- 
+
   // Construir mensaje de bienvenida
   const mensaje = `¡Hola, ${col.nombre}! Llevas ${diasTexto} siendo parte de nuestra historia. Hoy inicias un recorrido especial por nuestros 120 años de trayectoria. En Carvajal hacemos las cosas bien.`;
- 
+
   // Iniciar animación de máquina de escribir
   setTimeout(() => iniciarTypewriter(mensaje), 600);
- 
+
   // Renderizar mapa de ruta
   setTimeout(() => generarMapaRuta(), 900);
 }
- 
+
 /**
  * Animación de máquina de escribir
  * @param {string} texto - texto completo a mostrar
  */
 function iniciarTypewriter(texto) {
   if (typewriterTimer) clearInterval(typewriterTimer);
- 
+
   const el = document.getElementById('typewriterText');
   el.textContent = '';
   let index = 0;
   const velocidad = 28; // ms por carácter
- 
+
   typewriterTimer = setInterval(() => {
     if (index < texto.length) {
       el.textContent += texto.charAt(index);
@@ -384,26 +336,26 @@ function iniciarTypewriter(texto) {
     }
   }, velocidad);
 }
- 
+
 /* ──────────────────────────────────────────────
    FASE 3: GENERACIÓN DINÁMICA DEL MAPA DE RUTA
    (Bucle for sobre el array paradasRuta)
 ────────────────────────────────────────────── */
- 
+
 /**
  * Genera dinámicamente el mapa de ruta usando un bucle for
  */
 function generarMapaRuta() {
   const container = document.getElementById('roadmapContainer');
   container.innerHTML = '';
- 
+
   for (let i = 0; i < paradasRuta.length; i++) {
     const parada = paradasRuta[i];
     const itemEl = crearItemRuta(parada, i);
     container.appendChild(itemEl);
   }
 }
- 
+
 /**
  * Crea el elemento DOM para una parada del mapa
  * @param {Object} parada
@@ -414,28 +366,28 @@ function crearItemRuta(parada, idx) {
   const item = document.createElement('div');
   item.className = `roadmap-item ${parada.habilitada ? 'enabled-item' : 'disabled-item'} fade-in-up`;
   item.style.animationDelay = `${0.3 + idx * 0.18}s`;
- 
+
   // Círculo numerado
   const circulo = document.createElement('div');
   circulo.className = `roadmap-circle ${parada.habilitada ? 'enabled' : 'disabled'}`;
   circulo.innerHTML = `<span class="stop-num">${parada.numero}</span>`;
- 
+
   // Contenido
   const contenido = document.createElement('div');
   contenido.className = 'roadmap-content';
- 
+
   const etiqueta = document.createElement('p');
   etiqueta.className = 'roadmap-label';
   etiqueta.textContent = `Parada ${parada.numero}`;
- 
+
   const nombre = document.createElement('h4');
   nombre.className = 'roadmap-name';
   nombre.textContent = parada.materia;
- 
+
   const descripcion = document.createElement('p');
   descripcion.className = 'roadmap-desc';
   descripcion.textContent = parada.descripcion;
- 
+
   // Botón de acción
   let boton;
   if (parada.habilitada && parada.enlace) {
@@ -455,49 +407,49 @@ function crearItemRuta(parada, idx) {
       ${parada.cta}
     `;
   }
- 
+
   contenido.appendChild(etiqueta);
   contenido.appendChild(nombre);
   contenido.appendChild(descripcion);
   contenido.appendChild(boton);
- 
+
   item.appendChild(circulo);
   item.appendChild(contenido);
- 
+
   return item;
 }
- 
+
 /* ──────────────────────────────────────────────
    LOGOUT
 ────────────────────────────────────────────── */
 function cerrarSesion() {
   if (typewriterTimer) clearInterval(typewriterTimer);
   usuarioActivo = null;
- 
+
   const profileScreen = document.getElementById('profileScreen');
   profileScreen.classList.add('fade-out');
- 
+
   setTimeout(() => {
     profileScreen.classList.remove('active', 'fade-out');
     profileScreen.style.display = 'none';
- 
+
     // Limpiar campos
     document.getElementById('inputUsuario').value = '';
     document.getElementById('inputPassword').value = '';
     limpiarErrorLogin();
- 
+
     const loginScreen = document.getElementById('loginScreen');
     loginScreen.style.display = '';
     loginScreen.classList.add('active');
   }, 500);
 }
- 
+
 /* ──────────────────────────────────────────────
    INICIALIZACIÓN Y EVENT LISTENERS
 ────────────────────────────────────────────── */
- 
+
 document.addEventListener('DOMContentLoaded', () => {
- 
+
   // ── Shake keyframe (inyectado en JS) ──
   const style = document.createElement('style');
   style.textContent = `
@@ -510,17 +462,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   `;
   document.head.appendChild(style);
- 
+
   // ── Estado inicial: solo login visible ──
   document.getElementById('profileScreen').style.display = 'none';
- 
+
   // ── Botón de login ──
   document.getElementById('btnLogin').addEventListener('click', () => {
     const usuario  = document.getElementById('inputUsuario').value.trim();
     const password = document.getElementById('inputPassword').value;
- 
+
     limpiarErrorLogin();
- 
+
     if (!usuario) {
       mostrarErrorLogin('Por favor ingresa tu usuario.');
       document.getElementById('inputUsuario').focus();
@@ -531,31 +483,31 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('inputPassword').focus();
       return;
     }
- 
+
     const colaborador = autenticar(usuario, password);
- 
+
     if (!colaborador) {
       mostrarErrorLogin('Usuario o contraseña incorrectos. Inténtalo de nuevo.');
       document.getElementById('inputPassword').value = '';
       document.getElementById('inputPassword').focus();
       return;
     }
- 
+
     transicionAPeril(colaborador);
   });
- 
+
   // ── Enter en campos activa login ──
   ['inputUsuario', 'inputPassword'].forEach(id => {
     document.getElementById(id).addEventListener('keydown', e => {
       if (e.key === 'Enter') document.getElementById('btnLogin').click();
     });
   });
- 
+
   // ── Botón logout ──
   document.getElementById('btnLogout').addEventListener('click', cerrarSesion);
- 
+
   // ── Limpiar error al escribir ──
   document.getElementById('inputUsuario').addEventListener('input', limpiarErrorLogin);
   document.getElementById('inputPassword').addEventListener('input', limpiarErrorLogin);
- 
+
 });
