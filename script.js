@@ -167,7 +167,23 @@ const baseDeDatos = [
     password:       'carvajal123',
     nombre:         'Santi',
     apellido:       'Colombina',
-    fotoPerfil:     'santi1.png',
+    fotoPerfil:     'santi2.png',
+    diasTrabajando: 3
+  }, 
+   { 
+   usuario:        'ronaldo',
+    password:       'carvajal123',
+    nombre:         'Ronaldo',
+    apellido:       'Otalvaro',
+    fotoPerfil:     'ronaldo.png',
+    diasTrabajando: 3
+  },
+   {
+   usuario:        'newman',
+    password:       'carvajal123',
+    nombre:         'newman',
+    apellido:       ' ',
+    fotoPerfil:     'none',
     diasTrabajando: 3
   }
 ];
