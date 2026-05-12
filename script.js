@@ -185,6 +185,13 @@ const baseDeDatos = [
     apellido:       ' ',
     fotoPerfil:     'none',
     diasTrabajando: 3
+  },
+       usuario:        'estudiante',
+    password:       'carvajal123',
+    nombre:         'estudiante',
+    apellido:       'etica',
+    fotoPerfil:     'estudiante.png',
+    diasTrabajando: 1
   }
 ];
 
