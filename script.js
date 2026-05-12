@@ -186,6 +186,7 @@ const baseDeDatos = [
     fotoPerfil:     'none',
     diasTrabajando: 3
   },
+   {
     usuario:        'estudiante',
     password:       'carvajal123',
     nombre:         'estudiante',
